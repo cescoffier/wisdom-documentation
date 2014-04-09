@@ -1,0 +1,83 @@
+:icons: font
+:sectanchors: true
+:numbered: true
+:imagesdir: /assets/images/
+
+= Why Wisdom ?
+
+[quote, Socrates]
+Wisdom begins in wonder.
+
+== _Better, Faster, Stronger_
+
+In the latest year, we successfully developed and maintained applications with
+different frameworks for our own businesses and for customers. We used JavaEE, Spring Framework, Play
+framework (1 and 2), Grails, Rails, Django, even raw servlets served by the lovely but wild Tomcat. We have worked with
+many frameworks, many technologies.
+
+**To make it clear:** All these frameworks are wonderful. Without them, we would never have succeed in any of our
+project. We love them and enjoyed working with them. They are a huge help in developing web applications.
+
+image::/assets/images/boat.png[float="right", align="right"]
+But requirements change, actually are changing continually. Mobiles have changed the game, the Cloud is
+ not as easy as it looks, Internet of Things... So many new requirements. The world in which
+ our applications live is not stable, everything evolve, customer change their mind, users too. Technologies is
+ continuously pushing the boundaries a bit further. And change is accelerating. This introduces a new major issue:
+ **dynamic adaptation** to face changes happening while the application is running. A printer breaks down, the
+ Internet connection disrupts, a remote service is under maintenance, par of your app is being upgraded. **Building
+ software today is like navigating on a tapped raft on a raging sea**.
+
+So, the main question is "how can we develop applications that would survive in such context". How can we reuse and
+capitalized on our experience ? On our previous development ? For all these reasons, the frameworks we used often
+ did not feel right.
+
+Wisdom is born in October 2013, we took a deep breath and put all the requirements on the table. We have analyzed
+dozen of projects, in different domains, for different customers. We began developing ideas about the web framework
+ of our dreams. Not the _silver bullet_, but a framework that would be like a _chameleon_, something we can reuse and
+  adapt to our will. But also something with we would develop efficiently, in a professional way.
+
+How should such a framework look like? What are the key features we always needed to complete and maintain a software
+ project successfully in-time, in-budget, and **with fun**?
+
+[[chameleon]]
+== A Chameleon, not a Cockatrice
+
+After long days of discussions, several topics emerged: modularity, adaptation, dynamism. We kept these requirements
+ a a high level voluntary, to not be biased by technologies.
+
+image::/assets/images/chameleon-tribal.png[float="right", align="right"]
+If you put all these requirements in a jar, and shake the jar, you are likely to obtain a very complex framework,
+plenty of dark magic. We wanted to avoid that.
+
+**Modularity** because we wanted to improve our reuse ratio. It's a key requirement today, to deliver projects in time.
+With such requirement in mind, we started to design and develop applications using reusable components. Despite
+componentization is a general trend, finding the right primitive to improve reuse is not that easy. That's why we
+decided to use _service-based architecture_. Well, that does not mean bloated SOA, just that components requires and
+provides _services_, enabling substitutability.
+
+**Adaptation** as we wanted to be able to use this framework in most of our projects. Mobile application, ubiquitous
+application, simple web site, M2M applications... All domains hove there own requirements, but providing a common
+development model and platform is not impossible. Basics services are common, despite implementation may differ in
+details.
+
+**Dynamism**. Probably the most unseeing requirement. Unseeing, but here, surrounding you. Everything is evolving
+around your application, and it may deeply impact it. Even enterprise applications
+have dynamism in their blood. Services on which they rely can evolve, or become unreachable. So our applications must
+provide primitives required to extend their _autonomy_, implement _autonomic behavior_, and let the application drives
+adaption itself to face its changing surrounding environment and business goals.
+
+
+We are like you, we want enjoy coding, see the results immediately. But at the same time, ensure that the application
+ is robust, and work correctly. We want to trust the application we build. There are enough source of stress in our
+ world.
+
+
+So we built Wisdom, a framework to develop modular and dynamic web applications. A framework embracing modularity,
+making adaptation easy. A framework made by developers for developers, but fulfilling the real world requirements.
+[subs="none"]
+<p><a class="btn btn-primary btn-lg pull-right" href="/learn/philosophy/features.html" role="button"><i class="fa
+fa-play"></i></a></p>
+Oh, before I forgot, we wanted to have fun building it too ;-).
+
+Come and follow us to discover the main link:/learn/philosophy/features.html[features].
+

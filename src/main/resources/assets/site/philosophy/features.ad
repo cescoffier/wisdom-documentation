@@ -1,0 +1,114 @@
+:icons: font
+:sectanchors: true
+:numbered: true
+:imagesdir: /assets/images/
+
+= The Wisdom Stack
+
+[quote, Ralph Waldo Emerson]
+Do not go where the path may lead, go instead where there is no path and leave a trail.
+
+== Modularity First
+
+Wisdom applies it's own idea to itself. That is, Wisdom is modular, highly modular. Any piece of software listed in
+this page can be replaced by just implementing the same _service_ (interface), the original component exposes.
+
+Wisdom is also extensible. You are not limited to the base feature set. You can use one of the available extension,
+or develop your own. Actually, Wisdom extensions are just Wisdom applications, following the same construction rules
+and development model.
+
+== Dynamism everywhere
+
+Dynamism is a tough problem. Despite we really need it, we want to make it as transparent as it can be for the
+developers. This is why we choose _service-oriented component models_ as the base of our approach. These component
+frameworks promote both modularity and dynamism. Combined with dependency injection mechanisms, they relieve the
+dynamism pain, making the development of dynamic applications almost as easy as traditional static and monolithic
+application.
+
+
+[[Stack]]
+== The stack
+
+We distinguish the build phase from the runtime platform and technical services.
+
+=== Build Phase
+
+* **[text-primary]#Maven#** - we use http://maven.org.org[Apache Maven], the rock-solid and widely use build tool. It
+proposes all the feature we need:  lifecycle, plugins, dependency management...
+
+* **[text-primary]#Maven Watchers#** - we extended Maven with a _watch_ mode, making development with Maven much more
+pleasant with a very fast turn-around.
+
+* **[text-primary]#JavaScript pre-processors#** - Wisdom supports http://coffeescript.org[CoffeeScript] natively,
+compiling CoffeeScript
+files to JavaScript.
+
+* **[text-primary]#Modern Stylesheets#** - Wisdom supports http://lesscss.org[Less] natively, compiling Less files to
+CSS.
+
+* **[text-primary]#JavaScript minification#** - JavaScript is an error-prone language, Wisdom embeds the
+https://developers.google.com/closure/[Google Closure] checker verifying the consistency of your JavaScript code, and
+ _minifying_ it.
+
+* **[text-primary]#WebJars#** - Wisdom supports http://webjars.org[WebJars], making the use of any famous JavaScript
+and CSS libraries easy as pie.
+
+* **[text-primary]#Resource optimization#** - PNG and JPEG files are automatically optimized.
+
+=== Wisdom runtime
+
+* **[text-primary]#OSGi(TM)#** - http://felix.apache.org[Apache Felix] is the base of our modularity feature. All
+components, from the Wisdom stack or from the application, can be installed, started, stopped, updated, or
+uninstalled at runtime without stopping the overall system.
+
+* **[text-primary]#Dependency Injection#** - http://ipojo.org[Apache Felix iPOJO] is the most advanced
+service-oriented component mode for OSGi(TM). It makes developing dynamic application easy as pie thanks to a
+powerful dependency injection mechanism. It's extensibility is a key feature, as most of the Wisdom feature are just
+mapped on iPOJO primitives.
+
+=== Technical services
+
+* **[text-primary]#Template Engine#** - Wisdom embeds http://www.thymeleaf.org/[Thymeleaf] a HTML5 template engine.
+
+* **[text-primary]#JSON#** - Reading, parsing and writing JSON payload is made using the http://wiki.fasterxml
+.com/JacksonHome[Jackson] library.
+
+* **[text-primary]#HTTP#** - Wisdom uses http://netty.io[Netty] to serve HTTP requests.
+
+* **[text-primary]#Dynamic Routing#** - the Wisdom router is inherently dynamic.
+
+* **[text-primary]#WebSockets#** - Wisdom makes the development of applications using websockets very easy.
+
+* **[text-primary]#Session#** - Wisdom provides its own session, cookie and flash system.
+
+* **[text-primary]#i18n#** - A modular internalization layer is provided making i18n dynamic and much more powerful
+than traditional approaches. Messages and internalized resources can be deployed on the fly.
+
+* **[text-primary]#Scheduler and Async#** - Wisdom embeds the http://akka.io[Akka framework] to support its scheduling
+and async tasks.
+
+* **[text-primary]#Validation#** - Wisdom uses http://hibernate.org/validator/[Hibernate Validation], an
+implementation of http://beanvalidation.org/[Bean Validation] to ease the verification of the validity of the payloads.
+
+* **[text-primary]#Logging#** - Wisdom provides the http://slf4j.org[SLF4J] logging library out of the box.
+
+* **[text-primary]#Cache#** - Wisdom uses http://ehcache.org[EhCache] as its main cache implementation.
+
+* **[text-primary]#Testing#** - Wisdom provides everything you need to test your application using http://junit
+.org[Junit]. Unit, integration and _blackbox_ testing are supported out of the box.
+
+=== Extensions
+
+Wisdom is extensible, so this list is by nature incomplete:
+[subs="none"]
+<p><a class="btn btn-primary btn-lg pull-right" href="/learn/getting-started/guide.html" role="button"><i class="fa
+fa-play"></i></a></p>
+
+* http://asciidoctor.org/[Asciidoctor] - write documentation efficiently using the http://www.methods.co.nz/asciidoc/[Asciidoc] syntax, and refresh to see the result immediately
+* http://wamp.ws/[WAMP] - Use the WAMP v1 protocol to ease the communication between browsers and the application.
+* JDBC - Integrate JDBC data sources in your application.
+
+Let's continue with creating your first project.
+
+
+

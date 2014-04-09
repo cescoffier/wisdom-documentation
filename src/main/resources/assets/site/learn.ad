@@ -1,0 +1,44 @@
+:icons: font
+:sectanchors: true
+:numbered: true
+:imagesdir: /assets/images/
+
+[options="header"]
+[subs="none"]
+<div class="row jumbotron">
+        <img src="/assets/images/lego-confucius.png" class="col-sm-2" style="width:15%"/>
+        <div class="col-sm-9">
+        <h1  style="font-size: 39px">How to become <span class="text-success">wise</span>?</h1>
+        <p>Everything you need to know about Wisdom to run a modular and dynamic web applications. Follow us on our
+        <span class="text-info">Path to Wisdom...</span></p>
+        </div>
+</div>
+
+== What's Wisdom ?
+image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right"]
+* link:/learn/philosophy/philosophy.html[The seed was sowed long time ago]
+* link:/learn/philosophy/philosophy.html#chameleon[On the path to Wisdom]
+* link:/learn/philosophy/features.html[The Stack]
+
+[subs="none"]
+<div></div>
+
+== Guides and Docs
+* link:/learn/getting-started/guide.html[Create a project]
+* link:/learn/getting-started/anatomy.html[Anatomy of a Wisdom application]
+* link:/learn/getting-started/build.html[Wisdom build process and hot reload]
+* Configuring Intellij
+* Configuring Eclipse
+* Be ultra-efficient with the _Wisdom Watch Mode_
+
+image::/assets/images/lego-bricks.png[Building block,float="right",align="right"]
+== Reference Documentation
+
+* Reference Documentation - link:/reference/0.4/index.html[0.4]
+* Wisdom Maven Plugin Documentation - link:/wisdom-maven-plugin/0.4/plugin-info.html[0.4]
+* JavaDoc - link:/documentation/apidocs/0.4/index.html[0.4]
+
+== Extensions
+
+
+

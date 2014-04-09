@@ -1,0 +1,53 @@
+:icons: font
+:sectanchors: true
+:numbered: true
+:imagesdir: /assets/images/
+
+= The first step
+
+[quote, Lao Tzu]
+The journey of a thousand miles begins with one step.
+
+== Prerequisites
+
+To start developing with Wisdom you need:
+
+1. Java 7+ (Java Development Kit) - you can install one from
+http://www.oracle.com/technetwork/java/javase/downloads/index.html[here].
+2. http://maven.apache.org[Apache Maven]. Wisdom is based on Maven build tools.
+However don't worry,  Wisdom makes it easy. Wisdom requires a recent version of Maven (3.2.1+).
+
+In production, Wisdom just requires the Java 7+ virtual machine.
+
+Nothing else is required...
+
+NOTE: Why Maven? Maven makes easy the reuse of libraries and the composition of application using modules. In addition,
+ it covers the whole lifecycle from compilation to integration-test and much more. Finally, it is supported by most of
+  the continuous integration servers out of the box.
+
+== Create a new project
+
+Creating a project is done using the following command:
+
+----
+mvn org.wisdom-framework:wisdom-maven-plugin:${wisdom.version}:create \
+ -DgroupId=YOUR_GROUPID \
+ -DartifactId=YOUR_ARTIFACTID \
+ -Dversion=1.0-SNAPSHOT \
+----
+
+TIP: You can also customize the generated +package+ with +-Dpackage=org.acme.wisdom+
+
+Once generated, you can already run your wisdom application. Navigate to the generated folder, and launch:
+
+----
+mvn wisdom:run
+----
+
+Then, open your browser to: http://localhost:9000.
+[subs="none"]
+<p><a class="btn btn-primary btn-lg pull-right" href="/learn/getting-started/anatomy.html" role="button"><i class="fa
+fa-play"></i></a></p>
+That's it you have your first Wisdom application, you made the first step.
+
+Ready for the second steps ? Let's look at what is link:/learn/getting-started/anatomy.html[generated].

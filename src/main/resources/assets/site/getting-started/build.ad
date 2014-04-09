@@ -1,0 +1,110 @@
+:icons: font
+:sectanchors: true
+:toc: right
+:numbered: true
+:imagesdir: /assets/images/
+
+[discrete]
+== Build Process and Hot Reload
+
+
+=== The standard way
+
+As Wisdom is based on Apache Maven, building Wisdom application is not different as building any other Maven app:
+
+[listing]
+mvn clean install
+
+This commands:
+
+1. Initializes your project and provision the base Wisdom distribution in your `target` directory. It also copies all
+ the dependencies that are _bundles_ or _wisdom application_ to the `application` directory.
+2. Copies and filters (replace variables) all your resources, optimizes your images
+3. Compiles CoffeeScript and Less files, checks and minifies your JavaScript files
+4. Compiles your Java classes
+5. Compiles your test classes if any
+6. Runs your unit tests if any
+7. Packages your application and the distribution
+8. Runs the integration-test if any (by deploying your application in the distribution)
+9. Installs the application's jar and distribution in your local Maven repository
+
+
+This lifecycle is bound to the +wisdom+ packaging used in the +pom.xml+ file:
+
+[listing]
+<groupId>GROUP_ID</groupId>
+<artifactId>ARTIFACT_ID</artifactId>
+<version>VERSION</version>
+<!-- the wisdom packaging enables the 'wisdom' application lifecycle  -->
+<packaging>wisdom</packaging>
+
+All the required configuration is containing in the +wisdom-maven-plugin+ configuration (also in the +pom.xml+ file):
+
+[listing]
+<plugin>
+    <groupId>org.wisdom-framework</groupId>
+    <artifactId>wisdom-maven-plugin</artifactId>
+    <version>${wisdom.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <skipGoogleClosure>true</skipGoogleClosure>
+    </configuration>
+</plugin>
+
+In this example, the Google Closure compilation is skipped.
+
+=== The hot reload way
+
+Wisdom provides a hot reload capabilities. Every time you change a file, the adequate steps are redone, and the
+application redeployed (if needed). This _watch_ mode has several advantages:
+
+* it uses Maven, so the Maven process explained above is reused. This avoids having a different behavior in watch mode
+ and in regular build as we often have.
+* it's extensible, as any new Maven plugin relying on Wisdom 'watch' API can be part of the hot reload
+* there are no magic - no agent, no classloader tricks, no rewrite of your classes...
+
+To use the hot-reload, just launch:
+
+[listing]
+mvn wisdom:run
+
+It re-executes the step 1 to 7, and then starts the Wisdom distribution and enables the _watching_. So as soon as you
+ change a file in your project, it re-process whatever is required and redeployed. It's fast enough so, you just have
+  to switch to your browser and press refresh to see the final result.
+
+To leave the _watch_ mode, just issue **CTRL+C**.
+
+IMPORTANT: If you modified your +pom.xml+ file, you need to relaunch the watch mode.
+
+=== Some configuration
+
+(TODO - add link to the mojo site)
+
+The full configuration is available on the Wisdom-Maven-Plugin site.
+
+==== Command line flags
+
+These flags are appended to the +mvn+ command in the command line interface:
+
+* +-DskipTests+ - skips the test execution
+* +-DskipImageOptimization+ - skips the image optimization
+* +-Dshell+ - in watch mode, it gives you access to the http://shelbie.ow2.org[Shelbie] shell prompt (for OSGi users
+only). Stopping the server is then done with the +exit+ command, instead of +CTRL+C+.
+* +-Ddebug=PORT+ - launches the Wisdom service (in watch mode) with the _debug_ port opened to the given one. It lets
+ you connect your debugger.
+
+==== Plugin configuration
+
+These parameters can be added to the +<configuration/>+ section of the +wisdom-maven-plugin+:
+
+* +<skipGoogleClosure>true</skipGoogleClosure>+ - skips the Google Closure compilation and minification
+* +<excludeTransitive>true</excludeTransitive>+ - excludes the copy of the transitive dependency
+* +<skipImageOptimization>true</skipImageOptimization>+ - skips the image optimization
+* +<failOnBrokenAsset>true</failOnBrokenAsset>+ - fails the build is the image optimization fails on a file
+* +<disableDistributionPackaging>true</disableDistributionPackaging>+ - disables the packaging of the distribution
+
+
+
+
+
+
