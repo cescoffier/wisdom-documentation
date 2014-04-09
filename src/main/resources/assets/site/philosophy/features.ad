@@ -70,8 +70,8 @@ mapped on iPOJO primitives.
 
 * **[text-primary]#Template Engine#** - Wisdom embeds http://www.thymeleaf.org/[Thymeleaf] a HTML5 template engine.
 
-* **[text-primary]#JSON#** - Reading, parsing and writing JSON payload is made using the http://wiki.fasterxml
-.com/JacksonHome[Jackson] library.
+* **[text-primary]#JSON#** - Reading, parsing and writing JSON payload is made using the
+http://wiki.fasterxml.com/JacksonHome[Jackson] library.
 
 * **[text-primary]#HTTP#** - Wisdom uses http://netty.io[Netty] to serve HTTP requests.
 
@@ -94,8 +94,8 @@ implementation of http://beanvalidation.org/[Bean Validation] to ease the verifi
 
 * **[text-primary]#Cache#** - Wisdom uses http://ehcache.org[EhCache] as its main cache implementation.
 
-* **[text-primary]#Testing#** - Wisdom provides everything you need to test your application using http://junit
-.org[Junit]. Unit, integration and _blackbox_ testing are supported out of the box.
+* **[text-primary]#Testing#** - Wisdom provides everything you need to test your application using
+http://junit.org[Junit]. Unit, integration and _blackbox_ testing are supported out of the box.
 
 === Extensions
 

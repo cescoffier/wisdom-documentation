@@ -23,7 +23,7 @@ image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right
 [subs="none"]
 <div></div>
 
-== Guides and Docs
+== Guides and Tutorials
 * link:/learn/getting-started/guide.html[Create a project]
 * link:/learn/getting-started/anatomy.html[Anatomy of a Wisdom application]
 * link:/learn/getting-started/build.html[Wisdom build process and hot reload]
