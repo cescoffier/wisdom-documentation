@@ -27,6 +27,10 @@ NOTE: Why Maven? Maven makes easy the reuse of libraries and the composition of 
 
 == Create a new project
 
+.Wisdom project creation
+video::Nz0S9xzJy5M[youtube, width="600", height="300"]
+
+
 Creating a project is done using the following command:
 
 ----

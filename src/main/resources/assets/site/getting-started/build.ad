@@ -55,6 +55,9 @@ In this example, the Google Closure compilation is skipped.
 
 === The hot reload way
 
+.Wisdom Watch Mode
+video::_t8F1yuXt-Y[youtube, width="600", height="300"]
+
 Wisdom provides a hot reload capabilities. Every time you change a file, the adequate steps are redone, and the
 application redeployed (if needed). This _watch_ mode has several advantages:
 
