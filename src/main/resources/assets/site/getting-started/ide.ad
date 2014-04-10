@@ -18,26 +18,67 @@ If you are using Eclipse, there are two way to integrate Wisdom projects:
 
 ==== Using eclipse:eclipse
 
+TIP: Section Pending
+
 ==== Using m2eclipse
+
+TIP: Section Pending
 
 ==== Create a Watch Configuration
 
+TIP: Section Pending
+
 -Dshell + Exit
+
+==== Enable colors in the Eclipse console
+
+TIP: Section Pending
 
 ==== Debugging Wisdom application with Eclipse
 
+TIP: Section Pending
+
 === IntelliJ
 
-==== Import project
+.Integrate Wisdom and IntelliJ
+video::czaFARIlwPw[youtube, width="600", height="300"]
+
+Integrating Wisdom and IntelliJ is straightforward. As Wisdom build is based on Apache Maven, the Wisdom project can
+be imported as any other Maven project.
+
+So, on startup select 'Import Project', or if the IDE already running go to +File->Import Project+. You can also
+import the application as a module with +File->Import Module+.
+
+The only important configuration is the version of Java you use. It must be Java 7+.
 
 ==== Create the Watch Configuration
 
+Importing the project let you develop with IntelliJ, but what about launching the watch mode from IntelliJ. As shon
+on the video, just create a new +run+ configuration (+Run->Edit Configuration...+). Then click on the **+** button to
+ create a new +Maven+ configuration. In the command line, enter +wisdom:run+, and run !
+
+==== Enable the colored output in the console
+
+To get the colored console, install the Grep Console plugin: http://plugins.jetbrains.com/plugin/7125. Once done, in
++Preferences->Grep Console+, verify that the +Enabled Ansi Coloring option_ is checked.
+
 ==== Debugging Wisdom application with IntelliJ
 
+Debugging a Wisdom application is also quite easy. However it cannot be done using the 'debug' button on the run
+configuration we just created. This is because two Java applications are launched: the Maven program and the Wisdom
+server.
 
+Edit the created configuration and replace +mvn wisdom:run+ by +mvn wisdom:run -Ddebug=5000+. The debug argument
+instructs the Wisdom server to expect debugger connection on the specified port (5000 here).
 
+image::/assets/images/intellij/Run_Debug_Configurations.png[Adding -Ddebug=5000 to the configuration,align="center"]
 
+Once this is done, relaunch the Wisdom application. Then, create a new run configuration using the 'remote' type.
+The idea is to connect the debugger to the Wisdom server. Create the configuration, and specify the port as indicated
+ below:
 
-If you are using IntelliJ
+image::/assets/images/intellij/Debug_-_Wisdom_Documentation.png[Creating the remote debugger run configuration, align="center"]
+
+Now, you are ready to place your breakpoints and watch points, and launch the debugger.
 
 
