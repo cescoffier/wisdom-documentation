@@ -1,0 +1,43 @@
+:icons: font
+:sectanchors: true
+:toc: right
+:numbered: true
+:imagesdir: /assets/images/
+
+[discrete]
+== Configuring your IDE
+
+Wisdom build system is based on Apache Maven, so any IDE supporting Maven would be perfect.
+
+=== Eclipse
+
+If you are using Eclipse, there are two way to integrate Wisdom projects:
+
+1. Using +mvn eclipse:eclipse+
+2. Using https://www.eclipse.org/m2e/[m2eclipse]
+
+==== Using eclipse:eclipse
+
+==== Using m2eclipse
+
+==== Create a Watch Configuration
+
+-Dshell + Exit
+
+==== Debugging Wisdom application with Eclipse
+
+=== IntelliJ
+
+==== Import project
+
+==== Create the Watch Configuration
+
+==== Debugging Wisdom application with IntelliJ
+
+
+
+
+
+If you are using IntelliJ
+
+

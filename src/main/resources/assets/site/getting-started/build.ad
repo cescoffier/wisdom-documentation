@@ -78,9 +78,8 @@ IMPORTANT: If you modified your +pom.xml+ file, you need to relaunch the watch m
 
 === Some configuration
 
-(TODO - add link to the mojo site)
-
-The full configuration is available on the Wisdom-Maven-Plugin site.
+The full configuration is available on the
+link:/wisdom-maven-plugin/${wisdom.version}/plugin-info.html[Wisdom-Maven-Plugin site].
 
 ==== Command line flags
 

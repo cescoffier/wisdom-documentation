@@ -30,6 +30,10 @@
     var page = /*[[${page}]]*/ "/assets/site/learn.html";
     var retrieved;
     // Load the content.
+    function updateSnapshotLinks() {
+        $('a:contains("-SNAPSHOT")').addClass("text-muted");
+    }
+
     $.ajax({
         url: page,
         success: function (oData) {
@@ -45,6 +49,8 @@
             } else {
                 contentPlaceholder.removeClass("col-md-9").addClass("col-md-12");
             }
+
+            updateSnapshotLinks();
 
             //var footer = $(oData).filter("div#footer");
             //content.append(footer);

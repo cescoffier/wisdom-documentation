@@ -331,7 +331,7 @@ select {
 }
 
 p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p {
-    font-size: 1.23333em;
+    /*font-size: 1.23333em;*/
     line-height: 1.6;
 }
 
@@ -695,14 +695,14 @@ table thead, table tfoot {
 
 table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
     padding: 0.53333em 0.66667em 0.66667em;
-    font-size: 0.93333em;
+    /*font-size: 0.93333em;*/
     color: #222222;
     text-align: left;
 }
 
 table tr th, table tr td {
     padding: 0.6em 0.66667em;
-    font-size: 0.8em;
+    /*font-size: 0.8em;*/
     color: #222222;
 }
 
@@ -1881,7 +1881,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] {
 }
 
 p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p {
-    font-size: 1em;
+    /*font-size: 1em;*/
     color: #666666;
 }
 

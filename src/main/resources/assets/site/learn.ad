@@ -34,9 +34,12 @@ image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right
 image::/assets/images/lego-bricks.png[Building block,float="right",align="right"]
 == Reference Documentation
 
-* Reference Documentation - link:/reference/0.4/index.html[0.4]
-* Wisdom Maven Plugin Documentation - link:/wisdom-maven-plugin/0.4/plugin-info.html[0.4]
-* JavaDoc - link:/documentation/apidocs/0.4/index.html[0.4]
+* Reference Documentation - link:/reference/0.4/index.html[0.4] -
+link:/reference/0.5-SNAPSHOT/index.html[0.5-SNAPSHOT]
+* Wisdom Maven Plugin Documentation - link:/wisdom-maven-plugin/0.4/plugin-info.html[0.4] -
+link:/wisdom-maven-plugin/0.5-SNAPSHOT/plugin-info.html[0.5-SNAPSHOT]
+* JavaDoc - link:/documentation/apidocs/0.4/index.html[0.4] -
+link:/documentation/apidocs/0.5-SNAPSHOT/index.html[0.5-SNAPSHOT]
 
 == Extensions
 
