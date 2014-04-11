@@ -1,0 +1,32 @@
+:icons: font
+:sectanchors: true
+:numbered: true
+:imagesdir: /assets/images/
+
+[options="header"]
+[subs="none"]
+<div class="row jumbotron">
+        <img src="/assets/images/lego-crowd.png" class="col-sm-2" style="width:25%"/>
+        <div class="col-sm-9">
+        <h1  style="font-size: 39px">Following the Path to Wisdom is easier when you are not alone.</h1>
+        <p>Meet the Wisdom Community.</p>
+        </div>
+</div>
+
+== Mailing Lists
+image::/assets/images/lego-mail.png[Follow the path,float="right",align="right"]
+
+You can contact the Wisdom team, and reach the community by subscribing to the Google Groups:
+
+* https://groups.google.com/forum/#!forum/wisdom-discuss[Wisdom Discuss Group]
+* https://groups.google.com/forum/#!forum/wisdom-commit[Wisdom Commit Group (for developers only)]
+
+== Issue Tracker & Pull Requests
+
+We are using the https://github.com/wisdom-framework/wisdom/issues[Github Issue Tracker]. If you have found a bug,
+just open a new issue on the tracker.
+
+Feel free to https://github.com/wisdom-framework/wisdom/fork[fork] the project and to submit pull requests. All
+contributions are welcome.
+
+
