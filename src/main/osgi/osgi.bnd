@@ -1,0 +1,3 @@
+# BND Instructions
+Private-Package: site*, org.wisdom.test.http, assets*, templates*
+Import-Package: *;resolution:=optional

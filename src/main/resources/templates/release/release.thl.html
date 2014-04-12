@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head th:replace="headers :: head(title='Home')" lang="en">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div th:replace="headers :: header"><!-- Top Bar --></div>
+
+<div class="container">
+    <div class="row">
+        <h1 class="col-md-12 text-center">Release Notes</h1>
+    </div>
+
+    <div th:each="release,iterStat : ${releases}">
+        <div class="row">
+            <h2><a data-toggle="collapse" th:attr="data-target='#'+${iterStat.index}">
+                Version <span th:text="${release.name}">VERSION</span> (<span th:text="${release.date}"></span>)</a></h2>
+        </div>
+        <div th:id="${iterStat.index}" class="collapse" th:classappend="${iterStat.index} == 0 ? 'in'">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Issue</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="issue : ${release.issues}">
+                    <td><a th:href="${issue.url}" th:text="${issue.number}">#1</a></td>
+                    <td th:text="${issue.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Insert footer -->
+    <div class="row">
+        <div th:replace="footer :: footer"></div>
+    </div>
+</div>
+<div th:replace="scripts :: scripts"></div>
+</body>
+</html>
