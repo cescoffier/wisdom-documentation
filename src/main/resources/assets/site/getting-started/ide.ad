@@ -18,25 +18,93 @@ If you are using Eclipse, there are two way to integrate Wisdom projects:
 
 ==== Using eclipse:eclipse
 
-TIP: Section Pending
+Using the +eclipse:eclipse+ way does not require any Eclipse plugin installed. Maven generates the Eclipse's
+configuration files.
+
+First, navigate to your project and launch: +mvn eclipse:eclipse+. This generates the +.classpath+ and +.project+.
+
+Before importing the project to Eclipse, check that the +M2_REPO+ classpath variable is defined:
+
+image::/assets/images/eclipse/M2_REPO.png[Define the M2_REPO variable,align="center"]
+
+You also need to check that your `Compiler compliance level` is set to **1.7**, in +Preferences->Java->Compiler+.
+
+Once done, just import the project as an `Existing Project into Workspace` (+File->Import->General->Existing Project
+into Workspace+).
+
+video::whnayOd1Cpg[youtube, width="600", height="300"]
+
+IMPORTANT: As Eclipse will ignore your `pom.xml` file, every time you add a dependency you will need to run +mvn
+eclipse:eclipse+ again.
+
+TIP: Because of a bug in Eclipse (https://bugs.eclipse.org/bugs/show_bug.cgi?id=38016), we recommend you to launch the
+Wisdom Watch Mode (+mvn wisdom:run+) from the command line, or with the +-Dshell+ option (so you will have to enter
+the 'exit' command to shutdown the server).
 
 ==== Using m2eclipse
 
-TIP: Section Pending
+m2eclipse is an Eclipse plugin integrating Maven in Eclipse. Thanks to this plugin, you can import your Wisdom
+project as a Maven project. So, dependencies are understood by Eclipse.
 
-==== Create a Watch Configuration
+image::/assets/images/eclipse/ImportAsMaven.png[Import projects as Maven Project with m2eclipse,align="center"]
 
-TIP: Section Pending
+However, m2eclipse requires you to modify your `pom.xml` file. This is because it use the pom file to configure
+itself. In the case of Wisdom, the metadata to add are available here. Edit your pom file to add the following snippet:
 
--Dshell + Exit
+----
+<pluginManagement>
+  <plugins>
+  <!--This plugin's configuration is used to store Eclipse m2e settings only.
+      It has no influence on the Maven build itself.-->
+    <plugin>
+      <groupId>org.eclipse.m2e</groupId>
+      <artifactId>lifecycle-mapping</artifactId>
+      <version>1.0.0</version>
+      <configuration>
+        <lifecycleMappingMetadata>
+    	  <pluginExecutions>
+    	    <pluginExecution>
+    	  	<pluginExecutionFilter>
+    	    	<groupId>org.wisdom-framework</groupId>
+    			<artifactId>wisdom-maven-plugin</artifactId>
+    			<versionRange>[0.4,)</versionRange>
+    			<goals>
+    				<goal>initialize</goal>
+    				<goal>copy-configuration</goal>
+    				<goal>copy-resources</goal>
+    				<goal>copy-assets</goal>
+    				<goal>copy-templates</goal>
+    				<goal>compile-coffeescript</goal>
+    				<goal>compile-less</goal>
+    				<goal>compile-javascript</goal>
+    				<goal>optimize-images</goal>
+    				<goal>compile</goal>
+    				<goal>package</goal>
+    			</goals>
+    		  </pluginExecutionFilter>
+    		  <action><ignore></ignore></action>
+    		</pluginExecution>
+    	 </pluginExecutions>
+      </lifecycleMappingMetadata>
+     </configuration>
+    </plugin>
+  </plugins>
+</pluginManagement>
+----
 
-==== Enable colors in the Eclipse console
-
-TIP: Section Pending
+Once done, you project should compile correctly in Eclipse. Launch the Wisdom Watch Mode using +mvn wisdom:run+, and
+enjoy !
 
 ==== Debugging Wisdom application with Eclipse
 
-TIP: Section Pending
+To debug a Wisdom applicaiton, you just two things:
+
+1. Launch the Wisdom server with the +Debug+ option: +mvn wisdom:run -Ddebug=8000+
+2. Create a new Debug Configuration for Remote Applications, connecting on the port specified above (8000):
+
+image::/assets/images/eclipse/Debug_Configurations.png[Connecting the debugger,align="center"]
+
+Once done, just place your breakpoints, and ... Happy Debugging !
 
 === IntelliJ
 
