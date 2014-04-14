@@ -34,6 +34,19 @@
         $('a:contains("-SNAPSHOT")').addClass("text-muted");
     }
 
+    function navigateToHash() {
+        var hash = window.location.hash;
+        if (hash != null  && hash != undefined  && hash.length != 0) {
+            console.log("Hash : " + hash);
+            // We need to set it to empty first, as navigation is only trigger on change.
+            window.location.hash = "";
+            $('html, body').animate({
+                scrollTop: $( hash ).offset().top
+            }, 200);
+            window.location.hash = hash;
+        }
+    }
+
     $.ajax({
         url: page,
         success: function (oData) {
@@ -50,6 +63,7 @@
                 contentPlaceholder.removeClass("col-md-9").addClass("col-md-12");
             }
 
+            navigateToHash();
             updateSnapshotLinks();
 
             //var footer = $(oData).filter("div#footer");

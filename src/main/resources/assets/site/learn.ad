@@ -28,7 +28,7 @@ image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right
 * link:/learn/getting-started/anatomy.html[Anatomy of a Wisdom application]
 * link:/learn/getting-started/build.html[Wisdom build process and hot reload]
 * link:/learn/getting-started/ide.html#_intellij[Integrate your Wisdom Project in IntelliJ]
-* Configuring Eclipse
+* link:/learn/getting-started/ide.html#_eclipse[Integrate your Wisdom Project in Eclipse]
 
 image::/assets/images/lego-bricks.png[Building block,float="right",align="right"]
 == Reference Documentation
