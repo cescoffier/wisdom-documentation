@@ -37,7 +37,6 @@
     function navigateToHash() {
         var hash = window.location.hash;
         if (hash != null  && hash != undefined  && hash.length != 0) {
-            console.log("Hash : " + hash);
             // We need to set it to empty first, as navigation is only trigger on change.
             window.location.hash = "";
             $('html, body').animate({
