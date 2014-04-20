@@ -39,7 +39,14 @@ Creating a project is done using the following command:
 mvn org.wisdom-framework:wisdom-maven-plugin:${wisdom.version}:create \
  -DgroupId=YOUR_GROUPID \
  -DartifactId=YOUR_ARTIFACTID \
- -Dversion=1.0-SNAPSHOT \
+ -Dversion=1.0-SNAPSHOT
+----
+
+On Windows use:
+
+----
+mvn.bat org.wisdom-framework:wisdom-maven-plugin:${wisdom.version}:create -DgroupId="YOUR_GROUPID" -DartifactI
+d="YOUR_ARTIFACTID" -Dversion="YOUR_VERSION"
 ----
 
 TIP: You can also customize the generated +package+ with +-Dpackage=org.acme.wisdom+
