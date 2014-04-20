@@ -58,7 +58,7 @@ public class Site extends DefaultController {
 
     @Route(method = HttpMethod.GET, uri = "/reference/{path+}")
     public Result doc(@Parameter("path") String path) {
-        if (context().request().accepts(MimeTypes.HTML)) {
+        if (path.endsWith(".html")) {
             // Wraps the html pages in the layout.
             return ok(render(asciidoc, "page", "/documentation/reference/" + path));
         } else {
