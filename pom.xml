@@ -125,7 +125,6 @@
                             <goal>compile-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <stylesheet>github.css</stylesheet>
                             <stylesheetDir>stylesheets</stylesheetDir>
                             <doctype>book</doctype>
                         </configuration>
