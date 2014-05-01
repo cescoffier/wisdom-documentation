@@ -51,7 +51,6 @@ public class ReleaseNoteController extends DefaultController {
 
     @Route(method = HttpMethod.GET, uri = "/releases")
     public Result index() {
-        logger().info("releases : " + releases);
         return ok(render(template, "releases", releases));
     }
 
