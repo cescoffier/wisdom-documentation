@@ -11,15 +11,20 @@ import org.wisdom.api.DefaultController;
 import org.wisdom.api.annotations.Attribute;
 import org.wisdom.api.annotations.Controller;
 import org.wisdom.api.annotations.Route;
+import org.wisdom.api.annotations.View;
 import org.wisdom.api.configuration.ApplicationConfiguration;
 import org.wisdom.api.http.FileItem;
 import org.wisdom.api.http.HttpMethod;
 import org.wisdom.api.http.Result;
+import org.wisdom.api.templates.Template;
+import org.wisdom.monitor.service.MonitorExtension;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -30,7 +35,7 @@ import java.util.zip.ZipInputStream;
  * artifactId-version.
  */
 @Controller
-public class PackageUpload extends DefaultController {
+public class PackageUpload extends DefaultController implements MonitorExtension {
 
     public final static String DOCUMENTATION_ARTIFACT_ID = "documentation";
 
@@ -45,6 +50,8 @@ public class PackageUpload extends DefaultController {
     @Requires
     ApplicationConfiguration configuration;
 
+    @View("upload/upload")
+    Template template;
 
     File root;
     private File referenceRoot;
@@ -67,8 +74,14 @@ public class PackageUpload extends DefaultController {
         LOGGER.debug("Creating {} : {}", storage.getAbsolutePath(), storage.mkdirs());
     }
 
+    @Route(method = HttpMethod.GET, uri = "/upload")
+    public Result upload() {
+        Collection<File> archives = FileUtils.listFiles(storage, null, false);
+        return ok(render(template, "files", archives));
+    }
+
     @Route(method = HttpMethod.POST, uri = "/upload/reference")
-    public Result uploadReferenceDocumentation(@Attribute("upload") final FileItem upload) throws IOException {
+    public Result uploadReferenceDocumentation(@Attribute("reference") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading reference documentation : " + fileName);
         if (!fileName.startsWith(DOCUMENTATION_ARTIFACT_ID)) {
@@ -96,14 +109,14 @@ public class PackageUpload extends DefaultController {
                         // Unpacking /assets/ to docRoot
                         unpack(upload.stream(), "assets/", docRoot);
                         store(upload);
-                        return ok("Reference Documentation " + version + " uploaded");
+                        return redirect("/upload");
                     }
                 }
         );
     }
 
     @Route(method = HttpMethod.POST, uri = "/upload/mojo")
-    public Result uploadMojoDocumentation(@Attribute("upload") final FileItem upload) throws IOException {
+    public Result uploadMojoDocumentation(@Attribute("mojo") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading mojo documentation : " + fileName);
         if (!fileName.startsWith(MOJO_ARTIFACT_ID)) {
@@ -132,14 +145,14 @@ public class PackageUpload extends DefaultController {
                         // No prefix.
                         unpack(upload.stream(), "", docRoot);
                         store(upload);
-                        return ok("Mojo Documentation " + version + " uploaded");
+                        return redirect("/upload");
                     }
                 }
         );
     }
 
     @Route(method = HttpMethod.POST, uri = "/upload/javadoc")
-    public Result uploadJavadoc(@Attribute("upload") final FileItem upload) throws IOException {
+    public Result uploadJavadoc(@Attribute("apidocs") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading JavaDoc : " + fileName);
         if (!fileName.startsWith(JAVADOC_ARTIFACT_ID)) {
@@ -168,7 +181,7 @@ public class PackageUpload extends DefaultController {
                         // No prefix.
                         unpack(upload.stream(), "", docRoot);
                         store(upload);
-                        return ok("JavaDoc " + version + " uploaded");
+                        return redirect("/upload");
                     }
                 }
         );
@@ -214,4 +227,27 @@ public class PackageUpload extends DefaultController {
         FileUtils.writeByteArrayToFile(stored, upload.bytes());
     }
 
+    /**
+     * @return the label displayed in the menu.
+     */
+    @Override
+    public String label() {
+        return "Upload";
+    }
+
+    /**
+     * @return the url of the extension page.
+     */
+    @Override
+    public String url() {
+        return "/upload";
+    }
+
+    /**
+     * @return the category of the extension such as "root", "wisdom" or "OSGi".
+     */
+    @Override
+    public String category() {
+        return "Documentation";
+    }
 }

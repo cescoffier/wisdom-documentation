@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html layout:decorator="/monitor/layout"> <!-- notice the decorator -->
+<head lang="en">
+    <!-- your extension title -->
+    <title>Documentation Upload</title>
+
+    <!-- additional styles and scripts -->
+    <link rel="stylesheet" href="/assets/table.css"/>
+    <link href="/assets/dashboard.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- the content of your view (the main content) -->
+<div layout:fragment="content">
+
+    <!-- the actual content goes there -->
+    <h1 class="page-header">Upload Documentation</h1>
+
+    <h2>Upload Documentation</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form role="form" method="post" action="/upload/reference" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="reference">Reference Documentation</label>
+                        <input type="file" id="reference" name="reference"/>
+                        <p class="help-block">Select the reference documentation package.</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form role="form" method="post" action="/upload/mojo" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="mojo">Wisdom-Maven-Plugin Documentation</label>
+                        <input type="file" id="mojo" name="mojo"/>
+                        <p class="help-block">Select the Wisdom Maven Plugin site package.</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form role="form" method="post" action="/upload/javadoc" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="apidocs">JavaDoc</label>
+                        <input type="file" id="apidocs" name="apidocs"/>
+                        <p class="help-block">Select the JavaDoc package.</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>Deployed packages</h2>
+    <p>Here is the list of the deployed packages</p>
+
+    <ul th:each="file : ${files}">
+        <li th:text="${file.getName()}">File Name</li>
+    </ul>
+
+</div>
+</body>
+</html>
