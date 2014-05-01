@@ -1,4 +1,0 @@
-# BND Instructions
-Private-Package: site*, org.wisdom.test.http, assets*, templates*
-# Ignore jsoup, we don't need it anyway.
-Import-Package: !org.jsoup*, *
