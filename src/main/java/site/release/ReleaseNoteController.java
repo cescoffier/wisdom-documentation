@@ -20,6 +20,8 @@ import org.wisdom.api.http.Result;
 import org.wisdom.api.templates.Template;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -49,6 +51,7 @@ public class ReleaseNoteController extends DefaultController {
 
     @Route(method = HttpMethod.GET, uri = "/releases")
     public Result index() {
+        logger().info("releases : " + releases);
         return ok(render(template, "releases", releases));
     }
 
@@ -88,6 +91,13 @@ public class ReleaseNoteController extends DefaultController {
             LOGGER.info("{} issues have been added to release {}", release.issues.size(), release.name);
             list.add(release);
         }
+
+        Collections.sort(list, new Comparator<Release>() {
+            @Override
+            public int compare(Release o1, Release o2) {
+                return o2.date.compareTo(o1.date);
+            }
+        });
 
         synchronized (this) {
             this.releases = list;
