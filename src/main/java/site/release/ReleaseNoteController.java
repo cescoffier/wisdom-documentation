@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.ipojo.annotations.Validate;
+import org.apache.http.client.fluent.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wisdom.api.DefaultController;
@@ -13,10 +14,10 @@ import org.wisdom.api.annotations.Route;
 import org.wisdom.api.annotations.View;
 import org.wisdom.api.annotations.scheduler.Every;
 import org.wisdom.api.configuration.ApplicationConfiguration;
+import org.wisdom.api.content.Json;
 import org.wisdom.api.http.HttpMethod;
 import org.wisdom.api.http.Result;
 import org.wisdom.api.templates.Template;
-import org.wisdom.test.http.GetRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ public class ReleaseNoteController extends DefaultController {
 
     @Requires
     ApplicationConfiguration configuration;
+
+    @Requires
+    Json json;
 
     private List<Release> releases;
 
@@ -54,10 +58,10 @@ public class ReleaseNoteController extends DefaultController {
         List<Release> list = new ArrayList<Release>();
         String milestones = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                 ("repo.name") + "/milestones?state=closed";
-        final JsonNode body = new GetRequest(milestones).asJson().body();
+        final JsonNode body = json.parse(Request.Get(milestones).execute().returnContent().asString());
         if (body instanceof ObjectNode) {
-           LOGGER.error("Cannot retrieve the milestones from GitHub - Probably an API Rate Limit. The response is: " +
-                   "{}", body);
+            LOGGER.error("Cannot retrieve the milestones from GitHub - Probably an API Rate Limit. The response is: " +
+                    "{}", body);
             return;
         }
         ArrayNode array = (ArrayNode) body;
@@ -70,7 +74,7 @@ public class ReleaseNoteController extends DefaultController {
             int milestoneNumber = node.get("number").asInt();
             String url = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                     ("repo.name") + "/issues?milestone=" + milestoneNumber + "&state=closed&per_page=300";
-            final JsonNode resp = new GetRequest(url).asJson().body();
+            final JsonNode resp = json.parse(Request.Get(url).execute().returnContent().asString());
             if (resp instanceof ObjectNode) {
                 LOGGER.error("Cannot retrieve the issues from GitHub - Probably an API Rate Limit. The response is: " +
                         "{}", body);
