@@ -6,7 +6,7 @@ import org.apache.felix.ipojo.configuration.Instance;
 /**
  * Declares an instance of the asset controller to server $basedir/documentation.
  * The goal is to have the external documentation (reference, mojo and javadoc) structured as follows:
- *
+ * <p/>
  * {@literal documentation/reference/0.4}
  * {@literal documentation/reference/0.5-SNAPSHOT}
  * {@literal documentation/wisdom-maven-plugin/0.4}
@@ -21,7 +21,9 @@ public class DocConfiguration {
     /**
      * Declares the instance of resource controller serving resources from 'basedir/documentation'.
      */
-    Instance instance = Instance.instance().of("org.wisdom.resources.ResourceController")
-            .named("Documentation-Resources")
-            .with("path").setto("documentation");
+    public static Instance declareTheDocumentationController() {
+        return Instance.instance().of("org.wisdom.resources.AssetController")
+                .named("Documentation-Resources")
+                .with("path").setto("documentation");
+    }
 }
