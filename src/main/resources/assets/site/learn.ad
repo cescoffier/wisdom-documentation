@@ -5,10 +5,10 @@
 
 [options="header"]
 [subs="none"]
-<div class="row jumbotron">
+<div class="page-header row jumbotron">
         <img src="/assets/images/lego-confucius.png" class="col-sm-2" style="width:15%"/>
         <div class="col-sm-9">
-        <h1  style="font-size: 39px">How to become <span class="text-success">wise</span>?</h1>
+        <h1  style="font-size: 39px">How to become <span class="text-primary">wise</span>?</h1>
         <p>Everything you need to know about Wisdom to run a modular and dynamic web applications. Follow us on our
         <span class="text-info">Path to Wisdom...</span></p>
         </div>
@@ -33,12 +33,13 @@ image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right
 image::/assets/images/lego-bricks.png[Building block,float="right",align="right"]
 == Reference Documentation
 
-* Reference Documentation - link:/reference/0.4/index.html[0.4] -
-link:/reference/0.5-SNAPSHOT/index.html[0.5-SNAPSHOT]
+* Reference Documentation - link:/reference/0.4/index.html[0.4] - link:/reference/0.5/index.html[0.5] -
+link:/reference/0.5-SNAPSHOT/index.html[0.6-SNAPSHOT]
 * Wisdom Maven Plugin Documentation - link:/wisdom-maven-plugin/0.4/plugin-info.html[0.4] -
-link:/wisdom-maven-plugin/0.5-SNAPSHOT/plugin-info.html[0.5-SNAPSHOT]
-* JavaDoc - link:/documentation/apidocs/0.4/index.html[0.4] -
-link:/documentation/apidocs/0.5-SNAPSHOT/index.html[0.5-SNAPSHOT]
+link:/wisdom-maven-plugin/0.5/plugin-info.html[0.5] -
+link:/wisdom-maven-plugin/0.6-SNAPSHOT/plugin-info.html[0.6-SNAPSHOT]
+* JavaDoc - link:/documentation/apidocs/0.4/index.html[0.4] - link:/documentation/apidocs/0.5/index.html[0.5] -
+link:/documentation/apidocs/0.6-SNAPSHOT/index.html[0.6-SNAPSHOT]
 
 == Extensions
 
