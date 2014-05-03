@@ -16,7 +16,9 @@ import org.wisdom.api.configuration.ApplicationConfiguration;
 import org.wisdom.api.http.FileItem;
 import org.wisdom.api.http.HttpMethod;
 import org.wisdom.api.http.Result;
+import org.wisdom.api.security.Authenticated;
 import org.wisdom.api.templates.Template;
+import org.wisdom.monitor.extensions.security.MonitorAuthenticator;
 import org.wisdom.monitor.service.MonitorExtension;
 
 import java.io.File;
@@ -35,6 +37,7 @@ import java.util.zip.ZipInputStream;
  * artifactId-version.
  */
 @Controller
+@Authenticated(MonitorAuthenticator.class)
 public class PackageUpload extends DefaultController implements MonitorExtension {
 
     public final static String DOCUMENTATION_ARTIFACT_ID = "documentation";
