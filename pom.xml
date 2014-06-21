@@ -11,7 +11,7 @@
     <packaging>wisdom</packaging>
 
     <properties>
-        <wisdom.version>0.5</wisdom.version>
+        <wisdom.version>0.5.1</wisdom.version>
     </properties>
 
     <dependencyManagement>
@@ -107,7 +107,7 @@
         <dependency>
             <groupId>org.wisdom-framework</groupId>
             <artifactId>wisdom-monitor</artifactId>
-            <version>0.5</version>
+            <version>${wisdom.version}</version>
         </dependency>
     </dependencies>
 
@@ -132,7 +132,7 @@
             <plugin>
                 <groupId>org.wisdom-framework</groupId>
                 <artifactId>wisdom-asciidoc-maven-plugin</artifactId>
-                <version>0.5</version>
+                <version>${wisdom.version}</version>
                 <executions>
                     <execution>
                         <goals>
