@@ -1,5 +1,7 @@
 package site.upload;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.Strings;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -13,20 +15,16 @@ import org.wisdom.api.annotations.Controller;
 import org.wisdom.api.annotations.Route;
 import org.wisdom.api.annotations.View;
 import org.wisdom.api.configuration.ApplicationConfiguration;
+import org.wisdom.api.content.Json;
 import org.wisdom.api.http.FileItem;
 import org.wisdom.api.http.HttpMethod;
 import org.wisdom.api.http.Result;
 import org.wisdom.api.security.Authenticated;
 import org.wisdom.api.templates.Template;
-import org.wisdom.monitor.extensions.security.MonitorAuthenticator;
 import org.wisdom.monitor.service.MonitorExtension;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -37,7 +35,6 @@ import java.util.zip.ZipInputStream;
  * artifactId-version.
  */
 @Controller
-@Authenticated(MonitorAuthenticator.class)
 public class PackageUpload extends DefaultController implements MonitorExtension {
 
     public final static String DOCUMENTATION_ARTIFACT_ID = "documentation";
@@ -63,6 +60,9 @@ public class PackageUpload extends DefaultController implements MonitorExtension
 
     private File storage;
 
+    @Requires
+    Json json;
+
     @Validate
     public void validate() {
         root = new File(configuration.getBaseDir(), "documentation");
@@ -78,12 +78,61 @@ public class PackageUpload extends DefaultController implements MonitorExtension
     }
 
     @Route(method = HttpMethod.GET, uri = "/upload")
+    @Authenticated("Monitor-Authenticator")
     public Result upload() {
         Collection<File> archives = FileUtils.listFiles(storage, null, false);
         return ok(render(template, "files", archives));
     }
 
+    @Route(method = HttpMethod.GET, uri = "/upload/versions.json")
+    // Not authenticated.
+    public Result versions() {
+        ObjectNode versions = json.newObject();
+        ArrayNode references = json.newArray();
+        ArrayNode mojo = json.newArray();
+        ArrayNode api = json.newArray();
+
+        File[] files = referenceRoot.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isDirectory();
+            }
+        });
+
+        for (File f : files) {
+            references.add(f.getName());
+        }
+
+        files = mojoRoot.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isDirectory();
+            }
+        });
+        for (File f : files) {
+            mojo.add(f.getName());
+        }
+
+        files = javadocRoot.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isDirectory();
+            }
+        });
+        for (File f : files) {
+            api.add(f.getName());
+        }
+
+        versions.put("reference", references);
+        versions.put("mojo", mojo);
+        versions.put("javadoc", api);
+        versions.put("current", configuration.getOrDie("wisdom.version"));
+
+        return ok(versions);
+    }
+
     @Route(method = HttpMethod.POST, uri = "/upload/reference")
+    @Authenticated("Monitor-Authenticator")
     public Result uploadReferenceDocumentation(@Attribute("reference") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading reference documentation : " + fileName);
@@ -112,13 +161,14 @@ public class PackageUpload extends DefaultController implements MonitorExtension
                         // Unpacking /assets/ to docRoot
                         unpack(upload.stream(), "assets/", docRoot);
                         store(upload);
-                        return redirect("/upload");
+                        return upload();
                     }
                 }
         );
     }
 
     @Route(method = HttpMethod.POST, uri = "/upload/mojo")
+    @Authenticated("Monitor-Authenticator")
     public Result uploadMojoDocumentation(@Attribute("mojo") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading mojo documentation : " + fileName);
@@ -148,13 +198,14 @@ public class PackageUpload extends DefaultController implements MonitorExtension
                         // No prefix.
                         unpack(upload.stream(), "", docRoot);
                         store(upload);
-                        return redirect("/upload");
+                        return upload();
                     }
                 }
         );
     }
 
     @Route(method = HttpMethod.POST, uri = "/upload/javadoc")
+    @Authenticated("Monitor-Authenticator")
     public Result uploadJavadoc(@Attribute("apidocs") final FileItem upload) throws IOException {
         String fileName = upload.name();
         LOGGER.info("Uploading JavaDoc : " + fileName);
@@ -184,7 +235,7 @@ public class PackageUpload extends DefaultController implements MonitorExtension
                         // No prefix.
                         unpack(upload.stream(), "", docRoot);
                         store(upload);
-                        return redirect("/upload");
+                        return upload();
                     }
                 }
         );
