@@ -15,7 +15,7 @@ import org.wisdom.api.templates.Template;
 
 /**
  * The main controller serving most of the resources.
- * <p/>
+ * <p>
  * As the content is written using Asciidoc, the access to HTML resources is intercepted to be loading within the
  * site template. The same method is used for the Mojo documentation.
  */
@@ -40,7 +40,7 @@ public class Site extends DefaultController {
     @View("content/mojo")
     private Template mojo;
 
-    //@Cached(key = "home", duration = 3600)
+    @Cached(key = "home", duration = 3600)
     @Route(method = HttpMethod.GET, uri = "/")
     public Result home() {
         // The main documentation linked is bound to the version set in the configuration file.
@@ -74,6 +74,11 @@ public class Site extends DefaultController {
         } else {
             return redirect("/documentation/wisdom-maven-plugin/" + path);
         }
+    }
+
+    @Route(method = HttpMethod.GET, uri = "/apidocs/{path+}")
+    public Result javadoc(@Parameter("path") String path) {
+        return redirect("/documentation/apidocs/" + path);
     }
 
     @Cached(key = "learn", duration = 3600)
