@@ -24,7 +24,9 @@ import org.wisdom.api.templates.Template;
 import org.wisdom.monitor.service.MonitorExtension;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -99,6 +101,13 @@ public class PackageUpload extends DefaultController implements MonitorExtension
             }
         });
 
+        Arrays.sort(files, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
         for (File f : files) {
             references.add(f.getName());
         }
@@ -109,6 +118,15 @@ public class PackageUpload extends DefaultController implements MonitorExtension
                 return pathname.isDirectory();
             }
         });
+
+        Arrays.sort(files, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
+
         for (File f : files) {
             mojo.add(f.getName());
         }
@@ -119,6 +137,15 @@ public class PackageUpload extends DefaultController implements MonitorExtension
                 return pathname.isDirectory();
             }
         });
+
+        Arrays.sort(files, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
+
         for (File f : files) {
             api.add(f.getName());
         }
