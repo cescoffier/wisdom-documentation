@@ -14,7 +14,7 @@
     <div th:each="release,iterStat : ${releases}">
         <div class="row">
             <h2><a data-toggle="collapse" th:attr="data-target='#'+${iterStat.index}">
-                Version <span th:text="${release.name}">VERSION</span> (<span th:text="${release.date}"></span>)</a></h2>
+                Version <span th:text="${release.name}">VERSION</span></a></h2>
         </div>
         <div th:id="${iterStat.index}" class="collapse" th:classappend="${iterStat.index} == 0 ? 'in'">
             <table class="table">

@@ -21,7 +21,6 @@ import org.wisdom.api.templates.Template;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -91,12 +90,7 @@ public class ReleaseNoteController extends DefaultController {
             list.add(release);
         }
 
-        Collections.sort(list, new Comparator<Release>() {
-            @Override
-            public int compare(Release o1, Release o2) {
-                return o2.date.compareTo(o1.date);
-            }
-        });
+        Collections.sort(list);
 
         synchronized (this) {
             this.releases = list;
