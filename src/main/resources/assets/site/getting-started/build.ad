@@ -10,14 +10,14 @@
 
 === The standard way
 
-As Wisdom is based on Apache Maven, building Wisdom application is not different as building any other Maven app:
+As Wisdom is based on Apache Maven, building a Wisdom application is no different than building any other Maven app:
 
 [listing]
 mvn clean install
 
-This commands:
+This command:
 
-1. Initializes your project and provision the base Wisdom distribution in your `target` directory. It also copies all
+1. Initializes your project and provisions the base Wisdom distribution in your `target` directory. It also copies all
  the dependencies that are _bundles_ or _wisdom application_ to the `application` directory.
 2. Copies and filters (replace variables) all your resources, optimizes your images
 3. Compiles CoffeeScript and Less files, checks and minifies your JavaScript files
@@ -38,7 +38,7 @@ This lifecycle is bound to the +wisdom+ packaging used in the +pom.xml+ file:
 <!-- the wisdom packaging enables the 'wisdom' application lifecycle  -->
 <packaging>wisdom</packaging>
 
-All the required configuration is containing in the +wisdom-maven-plugin+ configuration (also in the +pom.xml+ file):
+All the required configuration is contained in the +wisdom-maven-plugin+ configuration (also in the +pom.xml+ file):
 
 [listing]
 <plugin>
@@ -58,21 +58,21 @@ In this example, the Google Closure compilation is skipped.
 .Wisdom Watch Mode
 video::_t8F1yuXt-Y[youtube, width="600", height="300"]
 
-Wisdom provides a hot reload capabilities. Every time you change a file, the adequate steps are redone, and the
+Wisdom provides hot reload capabilities. Every time you change a file, the adequate steps are redone, and the
 application redeployed (if needed). This _watch_ mode has several advantages:
 
 * it uses Maven, so the Maven process explained above is reused. This avoids having a different behavior in watch mode
- and in regular build as we often have.
+ and in the regular build as we often have.
 * it's extensible, as any new Maven plugin relying on Wisdom 'watch' API can be part of the hot reload
-* there are no magic - no agent, no classloader tricks, no rewrite of your classes...
+* there is no magic - no agent, no classloader tricks, no rewrite of your classes...
 
 To use the hot-reload, just launch:
 
 [listing]
 mvn wisdom:run
 
-It re-executes the step 1 to 7, and then starts the Wisdom distribution and enables the _watching_. So as soon as you
- change a file in your project, it re-process whatever is required and redeployed. It's fast enough so, you just have
+It re-executes the steps 1 to 7, and then starts the Wisdom distribution and enables the _watching_. So as soon as you
+ change a file in your project, it re-processes whatever is required and redeployed. It's fast enough so, you just have
   to switch to your browser and press refresh to see the final result.
 
 To leave the _watch_ mode, just issue **CTRL+C**.

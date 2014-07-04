@@ -11,7 +11,7 @@ Knowing yourself is the beginning of all wisdom.
 
 == The standard application layout
 
-Wisdom is based on Apache Maven, and so follow Maven conventions. It is standardized and well understood. So it keeps
+Wisdom is based on Apache Maven, and so follows Maven conventions. It is standardized and well understood. So it keeps
  things simple.
 
 [listing]
@@ -51,10 +51,10 @@ The application is packaged as a Jar file. This package contains all classes fro
 `src/main/resource` (internal templates and internal assets). This Jar file is an OSGi bundle, but you don't have to
 worry about that.
 
-image::/assets/images/package.png[Wisdom Application are just Jar files,200, 200, align="center"]
+image::/assets/images/package.png[Wisdom Applications are just Jar files,200, 200, align="center"]
 
-Such jar is the unit of modularity of Wisdom, so complex applications can be composed by several of
- these jar. Wisdom makes this type of composition very easy, so your application looks like:
+Such jars are the unit of modularity of Wisdom, so complex applications can be composed by several of
+ these jars. Wisdom makes this type of composition very easy, so your application looks like:
 
 image::/assets/images/modular-app.png[Composing application is made easy, 300, 300, align="center"]
 
@@ -64,11 +64,11 @@ The distribution contains everything to run your application. It's a standalone 
 
 image::/assets/images/distribution.png[Wisdom distribution are standalone, 500, 500, align="center"]
 
-So, distribution contains your application, as well as external resources. Such resources are made available to all
+So, the distribution contains your application, as well as external resources. Such resources are made available to all
 applications, and overrides internal resources. This allows you:
 
 * to update the stylesheets, resources or template without having to modify the application,
-* to provide resources without having to packaged them.
+* to provide resources without having to package them.
 
 So, to summarized:
 
@@ -78,11 +78,11 @@ So, to summarized:
 
 == Directories packaged within the application
 
-The +src/main/java+ contains all the Java classes. Controllers, components, helper classes, evey Java entities are
+The +src/main/java+ contains all the Java classes. Controllers, components, helper classes, even Java entities are
 there.
 
 The +src/main/resources/assets+ contains all the resources put inside the application package. Assets contains images,
-JavaScript and CoffeeScript files, CSS and Less files... We recommend you to organize your directory using three
+JavaScript and CoffeeScript files, CSS and Less files... We recommend that you organize your directory using three
 directories:
 
 [listing]
@@ -97,7 +97,7 @@ engine. So templates have generally the `.thl.html` file.
 == Directories packaged within the distribution
 
 The +src/main/assets+ contains all the resources put in the +assets+ directory of the distribution. Assets contains
-images, JavaScript and CoffeeScript files, CSS and Less files... We recommend you to organize your directory using three
+images, JavaScript and CoffeeScript files, CSS and Less files... We recommend that you organize your directory using three
 directories:
 
 [listing]
@@ -111,7 +111,7 @@ provides, by default, the Thymeleaf template engine. So templates have generally
 
 == src/main/configuration
 
-The configuration directory contains the main application configuration. It let you configure the different aspect of
+The configuration directory contains the main application configuration. It lets you configure the different aspects of
  your application:
 
 * +application.conf+ : the main application configuration
@@ -123,7 +123,7 @@ All these files are going to the +conf+ directory of the distribution.
 
 == The pom file
 
-The +pom.xml+ file describe the project. It's the file read by Apache Maven and driving the build system.
+The +pom.xml+ file describes the project. It's the file read by Apache Maven and driving the build system.
 
 == The target directory
 
@@ -134,7 +134,7 @@ in the +target/wisdom+ directory.
 [subs="none"]
 <p><a class="btn btn-primary btn-lg pull-right" href="/learn/getting-started/build.html" role="button"><i class="fa
 fa-play"></i></a></p>
-Because Wisdom does not pollutes the +src+ directory and the base directory, the typical .gitignore file is just:
+Because Wisdom does not pollute the +src+ directory and the base directory, the typical addition to the .gitignore file is just:
 
 [listing]
 target
