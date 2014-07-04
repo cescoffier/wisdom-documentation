@@ -23,7 +23,7 @@ Nothing else is required...
 
 IMPORTANT: Maven 3.2.1 - To support the Watch mode, Wisdom needs at least Maven 3.2.1.
 
-NOTE: Why Maven? Maven makes easy the reuse of libraries and the composition of application using modules. In addition,
+NOTE: Why Maven? Maven makes it easy to reuse the libraries and the composition of applications using modules. In addition,
  it covers the whole lifecycle from compilation to integration-test and much more. Finally, it is supported by most of
   the continuous integration servers out of the box.
 

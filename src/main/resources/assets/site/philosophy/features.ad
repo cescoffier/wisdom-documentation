@@ -10,20 +10,20 @@ Do not go where the path may lead, go instead where there is no path and leave a
 
 == Modularity First
 
-Wisdom applies it's own idea to itself. That is, Wisdom is modular, highly modular. Any piece of software listed in
+Wisdom applies its own idea to itself. That is, Wisdom is modular, highly modular. Any piece of software listed in
 this page can be replaced by just implementing the same _service_ (interface), the original component exposes.
 
-Wisdom is also extensible. You are not limited to the base feature set. You can use one of the available extension,
+Wisdom is also extensible. You are not limited to the base feature set. You can use one of the available extensions,
 or develop your own. Actually, Wisdom extensions are just Wisdom applications, following the same construction rules
 and development model.
 
 == Dynamism everywhere
 
-Dynamism is a tough problem. Despite we really need it, we want to make it as transparent as it can be for the
+Dynamism is a tough problem. Despite the fact that we really need it, we want to make it as transparent as it can be for the
 developers. This is why we choose _service-oriented component models_ as the base of our approach. These component
 frameworks promote both modularity and dynamism. Combined with dependency injection mechanisms, they relieve the
 dynamism pain, making the development of dynamic applications almost as easy as traditional static and monolithic
-application.
+applications.
 
 
 [[Stack]]
@@ -33,7 +33,7 @@ We distinguish the build phase from the runtime platform and technical services.
 
 === Build Phase
 
-* **[text-primary]#Maven#** - we use http://maven.org.org[Apache Maven], the rock-solid and widely use build tool. It
+* **[text-primary]#Maven#** - we use http://maven.org.org[Apache Maven], the rock-solid and widely used build tool. It
 proposes all the feature we need:  lifecycle, plugins, dependency management...
 
 * **[text-primary]#Maven Watchers#** - we extended Maven with a _watch_ mode, making development with Maven much more
