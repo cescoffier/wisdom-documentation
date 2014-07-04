@@ -132,10 +132,12 @@ in the +target/wisdom+ directory.
 
 == Typical .gitignore file
 [subs="none"]
-<p><a class="btn btn-primary btn-lg pull-right" href="/learn/getting-started/build.html" role="button"><i class="fa
-fa-play"></i></a></p>
 Because Wisdom does not pollute the +src+ directory and the base directory, the typical addition to the .gitignore file is just:
 
 [listing]
 target
+
+[subs="none]
+<p><a class="btn btn-primary btn-lg pull-right" href="/learn/getting-started/build.html" role="button"><i class="fa
+fa-play"></i></a></p>
 
