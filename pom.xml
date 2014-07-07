@@ -11,7 +11,7 @@
     <packaging>wisdom</packaging>
 
     <properties>
-        <wisdom.version>0.6</wisdom.version>
+        <wisdom.version>0.6.1</wisdom.version>
     </properties>
 
     <dependencyManagement>
