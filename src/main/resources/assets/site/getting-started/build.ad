@@ -105,6 +105,10 @@ These parameters can be added to the +<configuration/>+ section of the +wisdom-m
 * +<failOnBrokenAsset>true</failOnBrokenAsset>+ - fails the build is the image optimization fails on a file
 * +<disableDistributionPackaging>true</disableDistributionPackaging>+ - disables the packaging of the distribution
 
+[subs="none]
+<p><a class="btn btn-primary btn-lg pull-right" href="/learn" role="button"><i class="fa
+fa-play"></i></a></p>
+
 
 
 
