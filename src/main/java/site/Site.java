@@ -13,6 +13,9 @@ import org.wisdom.api.http.MimeTypes;
 import org.wisdom.api.http.Result;
 import org.wisdom.api.templates.Template;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The main controller serving most of the resources.
  * <p>
@@ -33,6 +36,10 @@ public class Site extends DefaultController {
      */
     @View("content/asciidoc")
     private Template asciidoc;
+
+    @View("download")
+    private Template download;
+
 
     /**
      * Template used to render content generated from Maven Site.
@@ -85,6 +92,21 @@ public class Site extends DefaultController {
     @Route(method = HttpMethod.GET, uri = "/learn")
     public Result learn() {
         return ok(render(asciidoc, "page", "/assets/site/learn.html"));
+    }
+
+    @Route(method = HttpMethod.GET, uri = "/download")
+    public Result download() {
+        String raw = configuration.get("wisdom.versions");
+        String[] segments = raw.split(",");
+        List<String> versions = new ArrayList<String>();
+        for (String s : segments) {
+            versions.add(s.trim());
+        }
+        logger().info("Versions : " + versions.size());
+        return ok(render(download, "versions", versions,"javaVersion",
+                configuration.get("javaVersion"),"mavenVersion",configuration.get("mavenVersion")
+                ,"javaLink",configuration.get("javaLink"),"mavenLink",
+                configuration.get("mavenLink")));
     }
 
 

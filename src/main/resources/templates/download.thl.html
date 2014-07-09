@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="headers :: head(title='Home')" lang="en">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div th:replace="headers :: header"><!-- Top Bar --></div>
+
+<div class="container">
+    <div class="row">
+        <h1 class="col-md-12 text-center">There is nothing to download</h1>
+    </div>
+
+    <div>
+        <div class="page-header jumbotron" style="padding-top: 15px; padding-bottom: 0px;">
+            <p>How come ? You clicked on the 'download' link and you land on a non download
+                page? This is because you have nothing to download. Everything will be
+                download during the project creation.</p>
+        </div>
+        <h2>Pre-requisites before creating a project</h2>
+        <p>However, Wisdom needs two things on your computer:</p>
+        <ol>
+            <li><a th:href="${javaLink}" th:text="${javaVersion}">Java 7+ JDK</a></li>
+            <li> <a th:href="${mavenLink}" th:text="${mavenVersion}">Maven 3.2.1</a></li>
+        </ol>
+        <p>That's all ! Now just fill the form below and copy and paste the generated command. You
+        are all set. <span class="text-success">Happy coding !</span></p>
+    </div>
+    <div>
+        <h2>The one-click project generation</h2>
+        <div class="row">
+        <div class="form-horizontal codegen">
+              <div id="generate" class="col-sm-6" style="margin-top: 50px">
+                  <div class="form-group">
+                    <label for="release" class="control-label col-xs-4">Wisdom version:</label>
+                    <div class="col-sm-6">
+                        <select id="release" class="form-control">
+                            <option th:each="v : ${versions}"
+                                    th:value="${v}" th:text="${v}"></option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="groupid" class="control-label col-xs-4">GroupId :</label>
+                      <div class="col-sm-6">
+                          <input type="text" id="groupid" class="form-control"
+                                 placeholder="org.acme" required="true"/>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="artifactid" class="control-label col-xs-4">ArtifactId :</label>
+
+                      <div class="col-sm-6"><input type="text" id="artifactid" class="form-control"
+                                                   placeholder="acme-sample" required="true"/>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="version" class="control-label col-xs-4">Version :</label>
+
+                    <div class="col-sm-6"><input type="text" id="version" class="form-control"
+                                                 placeholder="1.0-SNAPSHOT" required="true"/>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result" class="col-sm-6">
+                <div id="macCode">
+                    <h3>Mac/Linux:&nbsp;
+                        &nbsp;<button class="btn btn-warning clipboard"
+                                      id="mac_copy_button"
+                                      data-clipboard-target="mcopy"
+                                      data-toggle="tooltip"
+                                      data-trigger="hover"
+                                      data-placement="right"
+                                      title="Copy the command to clipboard"><i
+                                class="fa fa-clipboard" style="font-size: large"></i></button></h3>
+<pre><code id="mcopy" class="bash">mvn org.wisdom-framework:wisdom-maven-plugin:<span class="releasePlaceHolder">0.6.1</span>:create \
+ -DgroupId=<span class="groupIdPlaceHolder">YOUR_GROUPID</span> \
+ -DartifactId=<span class="artifactIdPlaceHolder">YOUR_ARTIFACTID</span> \
+ -Dversion=<span class="versionPlaceHolder">1.0-SNAPSHOT</span></code></pre>
+                </div>
+                <div id="winCode">
+                    <h3>Windows:&nbsp;
+                        &nbsp;<button class=" btn btn-warning clipboard"
+                                      id="win_copy_button"
+                                      data-clipboard-target="wcopy"
+                                      data-toggle="tooltip"
+                                      data-trigger="hover"
+                                      data-placement="right"
+                                      title="Copy the command to clipboard"><i
+                                class="fa fa-clipboard" style="font-size: large"></i></button></h3>
+<pre><code id="wcopy" class="bash">mvn.bat org.wisdom-framework:wisdom-maven-plugin:<span
+        class="releasePlaceHolder">0.6.1</span>:create -DgroupId="<span
+        class="groupIdPlaceHolder">YOUR_GROUPID</span>" -DartifactId="<span
+            class="artifactIdPlaceHolder">YOUR_ARTIFACTID</span>" -Dversion="<span
+            class="versionPlaceHolder">YOUR_VERSION</span>"</code></pre>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <br/>
+
+
+    <!-- Insert footer -->
+    <div class="row">
+        <div th:replace="footer :: footer"></div>
+    </div>
+</div>
+
+<div th:replace="scripts :: scripts"></div>
+<script src="/libs/ZeroClipboard.js"></script>
+<script>
+    function getValOrPlaceholder(element){
+        var val = element.val();
+        if (val == null  || val.length == 0) {
+            return $(element).attr("placeholder");
+        }
+        return val;
+    }
+
+    function update() {
+        $('.releasePlaceHolder').text($("#release").find("option:selected").text());
+        $('.groupIdPlaceHolder').text(getValOrPlaceholder($("#groupid")));
+        $('.artifactIdPlaceHolder').text(getValOrPlaceholder($("#artifactid")));
+        $('.versionPlaceHolder').text(getValOrPlaceholder($("#version")));
+    }
+
+    $(document).ready(function () {
+        $("input").keyup(function() {
+            update();
+        });
+
+        $("#release").change(function() {
+            update();
+        });
+
+        $('pre code').each(function (i, e) {
+            hljs.highlightBlock(e)
+        });
+
+        update();
+
+        new ZeroClipboard( document.getElementById("mac_copy_button") );
+        new ZeroClipboard( document.getElementById("win_copy_button") );
+
+        $('.clipboard').tooltip().click(function(){
+            $('.clipboard').tooltip("hide");
+        });
+
+
+    });
+</script>
+</body>
+</html>
