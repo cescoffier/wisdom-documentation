@@ -106,7 +106,8 @@ public class Site extends DefaultController {
         return ok(render(download, "versions", versions,"javaVersion",
                 configuration.get("javaVersion"),"mavenVersion",configuration.get("mavenVersion")
                 ,"javaLink",configuration.get("javaLink"),"mavenLink",
-                configuration.get("mavenLink")));
+                configuration.get("mavenLink"), "wisdomVersion",
+                configuration.get("wisdom.version")));
     }
 
 

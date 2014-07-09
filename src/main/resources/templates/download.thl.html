@@ -15,7 +15,7 @@
         <div class="page-header jumbotron" style="padding-top: 15px; padding-bottom: 0px;">
             <p>How come ? You clicked on the 'download' link and you land on a non download
                 page? This is because you have nothing to download. Everything will be
-                download during the project creation.</p>
+                downloaded during the project creation.</p>
         </div>
         <h2>Pre-requisites before creating a project</h2>
         <p>However, Wisdom needs two things on your computer:</p>
@@ -23,11 +23,14 @@
             <li><a th:href="${javaLink}" th:text="${javaVersion}">Java 7+ JDK</a></li>
             <li> <a th:href="${mavenLink}" th:text="${mavenVersion}">Maven 3.2.1</a></li>
         </ol>
-        <p>That's all ! Now just fill the form below and copy and paste the generated command. You
-        are all set. <span class="text-success">Happy coding !</span></p>
     </div>
     <div>
         <h2>The one-click project generation</h2>
+        <p>Just fill the form below and copy and paste the generated command in a terminal.
+            Navigate to the level of the generated project and type: <code>mvn wisdom:run</code>.
+            <br/><span
+                    class="text-success">Happy coding
+                !</span></p>
         <div class="row">
         <div class="form-horizontal codegen">
               <div id="generate" class="col-sm-6" style="margin-top: 50px">
@@ -100,7 +103,10 @@
         </div>
     </div>
     <br/>
-
+    For further details about project creation, or about the Maven Archetypes that also let you
+    generate projects from within your IDE, just check <a
+        th:href="'http://wisdom-framework.org/reference/' + ${wisdomVersion} +'/index.html#_create_a_wisdom_project'">
+    the reference documentation</a>.
 
     <!-- Insert footer -->
     <div class="row">
