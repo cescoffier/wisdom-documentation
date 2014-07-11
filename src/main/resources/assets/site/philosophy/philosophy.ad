@@ -56,7 +56,8 @@ decided to use _service-based architecture_. Well, that does not mean bloated SO
 provide _services_, enabling substitutability.
 
 **Adaptation** as we wanted to be able to use this framework in most of our projects. Mobile applications, ubiquitous
-applications, simple web sites, M2M applications... All domains hove there own requirements, but providing a common
+applications, simple web sites, M2M applications... All domains have there own requirements, but
+providing a common
 development model and platform is not impossible. Basic services are common, despite the fact that implementations
 may differ in details.
 
