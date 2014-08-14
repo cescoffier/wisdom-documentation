@@ -38,6 +38,9 @@ image::/assets/images/lego-bricks.png[Building block,float="right",align="right"
 
 == Extensions
 
+* link:/registry[List of extensions available for the Wisdom framework]
+* link:/registry/dev[Add an extension you have created to the extension registry]
+
 [subs="none"]
 <script src="/assets/site/versions.js">
 
