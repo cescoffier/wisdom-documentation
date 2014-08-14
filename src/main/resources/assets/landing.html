@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="shortcut icon" href="/assets/images/owl-small.png"/>
+    <title>Wisdom Framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="/libs/bootswatch-yeti/css/bootstrap.css" media="screen"/>
+    <!--<link rel="stylesheet" href="/libs/bootswatch-flatly/3.1.1/css/bootstrap-theme.css">-->
+
+    <link rel="stylesheet" href="/libs/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/libs/font-mfizz.css"/>
+
+    <link rel="stylesheet" href="/assets/stylesheets/github.css"/>
+    <link rel="stylesheet" href="/assets/stylesheets/wisdom.css"/>
+    <link rel="stylesheet"
+          href="/libs/styles/solarized_light.min.css"/>
+    <link rel="stylesheet" href="js/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<!-- Header fragment - Top bar -->
+<div class="blog-masthead">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="images/owl-small.png"/>&nbsp;Wisdom Framework</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="links">
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-item nav-active" href="/">Home</a></li>
+                    <li><a class="nav-item" href="/learn">Learn</a></li>
+                    <li><a class="nav-item" th:href="'/download'"> Download</a></li>
+                    <li><a class="nav-item" th:href="'/reference/' + ${wisdom.version} + '/index.html'">
+                        Documentation</a></li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/learn/community/community.html">Mailing List and Issues</a></li>
+                            <li><a href="/releases">Release Notes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- End fragment -->
+
+<div id="fullpage">
+    <div class="section container-fluid" id="section0">
+        <h1 class="wisdom-title">
+            Wisdom:<br/>
+            Enlighten your web development
+        </h1>
+
+        <div class="title-box">
+            <a href="#concepts/modularity"><i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;Modular</a>
+        </div>
+
+        <div class="title-box">
+            <a href="#concepts/dynamism"><i class="fa fa-paper-plane fa-2x"></i>&nbsp;Dynamic</a>
+        </div>
+
+        <div class="title-box">
+            <a href="#concepts/extensible"><i class="fa fa-cubes fa-2x"></i>&nbsp;Extensible</a>
+        </div>
+
+        <div class="fp-controlArrow fp-down" id="fp-bottom-intro">
+            <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+        </div>
+    </div>
+    <div class="section" id="section1">
+        <div class="slide" id="slide11" data-anchor="modularity">
+            <br/>
+
+            <h1>
+                Modularity
+            </h1>
+
+            <h2>
+                Wisdom lets you build modular web applications. Instead of having everything in one package you can
+                structure
+                your application as you want, making pieces replaceable and adaptable.
+            </h2>
+        </div>
+        <div class="slide" id="slide12" data-anchor="dynamism">
+            <br/>
+
+            <h1>
+                Dynamic
+            </h1>
+
+            <h2>
+                Wisdom applications are natively dynamic, and can adapt themselves to meet new expectations and
+                coping with environment fluctuations.
+            </h2>
+        </div>
+        <div class="slide" id="slide13" data-anchor="extensible">
+            <br/>
+
+            <h1>
+                Full-Stack
+            </h1>
+
+            <h2>
+                Wisdom provides everything you need to develop web applications: efficient development, tests,
+                deployment, monitoring, administration... But, everything is customizable and extensible.
+            </h2>
+        </div>
+        <div class="fp-controlArrow fp-down">
+            <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+        </div>
+    </div>
+
+
+    <div class="section" id="section2">
+        <div class="slide" id="slide21" data-anchor="stack">
+            <br/>
+
+            <h1>
+                The Stack
+            </h1>
+
+            <h2>
+                The Wisdom technical stack relies on well-tried technologies integrated in a modular way. It covers
+                development, testing, deployment, monitoring and administration.
+            </h2>
+        </div>
+        <div class="slide" id="slide22" data-anchor="java">
+            <br/>
+
+            <h1>
+                Java
+            </h1>
+
+            <h2>
+                Wisdom is a full stack based on Java and its ecosystem. And yes, Java can be used to build modern web
+                applications without disowning itself, and actually it does it very well.
+            </h2>
+        </div>
+        <div class="slide" id="slide23" data-anchor="osgi">
+            <br/>
+
+            <h1>
+                OSGi
+            </h1>
+
+            <h2>
+                Wisdom relies on OSGi&trade; to enforce its modularity. OSGi is the most mature modularity model for
+                Java. But don't worry, Wisdom makes it easy.
+            </h2>
+        </div>
+        <div class="slide" id="slide24" data-anchor="maven">
+            <br/>
+
+            <h1>
+                Apache Maven
+            </h1>
+
+            <h2>
+                Apache Maven is one of the most used build tools for Java applications. Wisdom relies on it but
+                extend it to make development fast without breaking reproducibility and industrialization.
+            </h2>
+        </div>
+        <div class="fp-controlArrow fp-down">
+            <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+        </div>
+    </div>
+
+    <div class="section container-fluid" id="section3">
+        <h1>On the Path to Wisdom</h1>
+
+        <h2>Whether you're an expert or a newcomer, the Wisdom Owl will guide you. The <em>Getting
+            Started Guides</em> and <em>Tutorials</em> are designed to get you productive with Wisdom as quickly as
+            possible.</h2>
+
+        <h2>
+            <br/>
+            <a href="/learn">
+                <span class="fa fa-book fa-3x"></span>
+            </a>
+        </h2>
+
+        <div class="fp-controlArrow fp-down">
+            <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+        </div>
+    </div>
+
+    <div class="section container-fluid" id="section4">
+        <h1>Shared &amp; Open</h1>
+
+        <h2>Wisdom is an open-source project. Feel free to join the community, and become involve.</h2>
+
+        <h2>
+            <br/>
+            <a href="/community">
+                <span class="fa fa-users fa-3x"></span>
+            </a>
+        </h2>
+    </div>
+
+</div>
+
+<!-- FOOTER Fragment -->
+<footer>
+    <hr class="featurette-divider"/>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+
+    <p><span class="text-primary">Wisdom Framework</span> is an open-source project licensed under the Apache
+        License 2.0.</p>
+</footer>
+<!-- End Fragment -->
+
+<div>
+    <script src="/libs/jquery.min.js"></script>
+    <script src="/libs/js/bootstrap.min.js"></script>
+    <script src="/libs/highlight.min.js"></script>
+    <script src="js/jquery.easings.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#fullpage').fullpage({
+                verticalCentered: false,
+                anchors: ['intro', 'concepts', 'stack', 'guides', 'community'],
+                animateAnchor: false,
+                loopHorizontal: false,
+                css3: true
+            });
+
+            $(".fp-controlArrow.fp-down").click(function () {
+                $.fn.fullpage.moveSectionDown();
+            });
+
+            $(".fp-controlArrow.fp-up").click(function () {
+                $.fn.fullpage.moveSectionUp();
+            });
+
+            $("#navToLearn").click(function() {
+                console.log("learn");
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
