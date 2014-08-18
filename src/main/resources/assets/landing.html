@@ -58,26 +58,42 @@
 <!-- End fragment -->
 
 <div id="fullpage">
-    <div class="section container-fluid" id="section0">
-        <h1 class="wisdom-title">
-            Wisdom:<br/>
-            Enlighten your web development
-        </h1>
+    <div class="section" id="section0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <h1 class="wisdom-title col-xs-5">
+                            Wisdom:<br/>
+                            Enlighten your web development
+                        </h1>
+                    </div>
+                    <div class="row">
+                        <div class="title-box col-xs-5">
+                            <h2><a href="#concepts/modularity"><i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;
+                            Modular</a></h2>
+                        </div>
+                    </div>
 
-        <div class="title-box">
-            <a href="#concepts/modularity"><i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;Modular</a>
-        </div>
+                    <div class="row">
+                        <div class="title-box col-xs-5">
+                            <h2><a href="#concepts/dynamism"><i class="fa fa-paper-plane fa-2x"></i>&nbsp;Dynamic</a></h2>
+                        </div>
+                    </div>
 
-        <div class="title-box">
-            <a href="#concepts/dynamism"><i class="fa fa-paper-plane fa-2x"></i>&nbsp;Dynamic</a>
-        </div>
+                    <div class="row">
+                        <div class="title-box col-xs-5">
+                            <h2><a href="#concepts/extensible"><i class="fa fa-cubes fa-2x"></i>&nbsp;Extensible</a></h2>
+                        </div>
+                    </div>
 
-        <div class="title-box">
-            <a href="#concepts/extensible"><i class="fa fa-cubes fa-2x"></i>&nbsp;Extensible</a>
-        </div>
-
-        <div class="fp-controlArrow fp-down" id="fp-bottom-intro">
-            <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+                    <div class="row">
+                    <div class="col-xs-5" id="fp-bottom-intro">
+                        <i class="fa fa-chevron-down fa-2x">&nbsp;</i>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="section" id="section1">
@@ -247,7 +263,11 @@
                 $.fn.fullpage.moveSectionUp();
             });
 
-            $("#navToLearn").click(function() {
+            $("#fp-bottom-intro").click(function() {
+                $.fn.fullpage.moveSectionDown();
+            });
+
+            $("#navToLearn").click(function () {
                 console.log("learn");
             });
         });
