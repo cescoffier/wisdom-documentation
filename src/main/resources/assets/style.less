@@ -16,7 +16,7 @@
  @section1-color: white;
 //@bg-color: #D7FF6A;
 @bg-color: #626461;
-@corners :100px;
+@corners :50px;
 
 //@section2-color:darken(@bg-color, 40%);
 @section2-color:@bg-color;
@@ -25,22 +25,44 @@
 
 
 
-.logo-center{
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
 
-  border:inherit 8px #000000;
-  -moz-border-radius-topleft: @corners;
-  -moz-border-radius-topright:@corners;
-  -moz-border-radius-bottomleft:@corners;
-  -moz-border-radius-bottomright:@corners;
-  -webkit-border-top-left-radius:@corners;
-  -webkit-border-top-right-radius:@corners;
-  -webkit-border-bottom-left-radius:@corners;
-  -webkit-border-bottom-right-radius:@corners;
-  border-top-left-radius:@corners;
-  border-top-right-radius:@corners;
-  border-bottom-left-radius:@corners;
-  border-bottom-right-radius:@corners;
 }
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .myrow {
+    display: table;
+  }
+
+  .mycol {
+
+    text-align: center;
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
 
 
 .section2, .section3{padding-bottom: 25px;}
@@ -138,12 +160,30 @@ h2 {
   display: inline-block;
   vertical-align: middle;
   float: none;
+  text-align: bottom;
 }
 
-.img-responsive3{
-  -webkit-box-shadow: 16px 10px 53px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 16px 10px 53px 2px rgba(0,0,0,0.75);
-  box-shadow: 16px 10px 53px 2px rgba(0,0,0,0.75);
-}
+
+
+.green{color: #E3FE68;}
+.side-img{padding: 5px;
+  margin: 5px;
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
+  box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
+  border:inherit 8px #000000;
+  -moz-border-radius-topleft: @corners;
+  -moz-border-radius-topright:@corners;
+  -moz-border-radius-bottomleft:@corners;
+  -moz-border-radius-bottomright:@corners;
+  -webkit-border-top-left-radius:@corners;
+  -webkit-border-top-right-radius:@corners;
+  -webkit-border-bottom-left-radius:@corners;
+  -webkit-border-bottom-right-radius:@corners;
+  border-top-left-radius:@corners;
+  border-top-right-radius:@corners;
+  border-bottom-left-radius:@corners;
+  border-bottom-right-radius:@corners;}
+
 
 
