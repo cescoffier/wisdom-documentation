@@ -23,7 +23,19 @@
 @section3-color:lighten(@bg-color,40%);
 @section4-color:darken(@bg-color,10%);
 
+@link-color: #dddddd;
+@link-hover-color: darken(@link-color, 15%);
 
+// Usage
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: @link-hover-color;
+    text-decoration: underline;
+  }
+}
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
@@ -117,7 +129,6 @@
 }
 
 
-
 .section2{background-color: @section2-color;
   color: #ececec;}
 .section3{background-color: @section3-color}
@@ -169,8 +180,9 @@ h2 {
 
 
 
-.green{color: @hcolor;}
+.green, .mycolor{color: @hcolor;}
 .side-img{padding: 5px;
+  background-color: @bg-color;
   margin: 5px;
   -webkit-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
   -moz-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
@@ -188,6 +200,12 @@ h2 {
   border-top-right-radius:@corners;
   border-bottom-left-radius:@corners;
   border-bottom-right-radius:@corners;}
+
+#nav-links {
+  margin: 0 auto;
+  padding:5px 0;
+  width: 300px;
+}
 
 
 
