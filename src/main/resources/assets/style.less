@@ -17,7 +17,7 @@
 //@bg-color: #D7FF6A;
 @bg-color: #626461;
 @corners :50px;
-
+@hcolor: #c6fe6a;//#EAFEC1;  //#E3FE68
 //@section2-color:darken(@bg-color, 40%);
 @section2-color:@bg-color;
 @section3-color:lighten(@bg-color,40%);
@@ -27,6 +27,10 @@
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
+
+     .centerme{padding-top: 30px;}
+  .mycol{text-align: center;}
+
 
 }
 
@@ -165,7 +169,7 @@ h2 {
 
 
 
-.green{color: #E3FE68;}
+.green{color: @hcolor;}
 .side-img{padding: 5px;
   margin: 5px;
   -webkit-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
