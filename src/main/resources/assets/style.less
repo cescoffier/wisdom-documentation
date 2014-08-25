@@ -8,51 +8,68 @@
   font-weight: 400;
   src: url('daniel_regular_macroman/daniel-webfont.eot');
   src: url('daniel_regular_macroman/daniel-webfont.eot?iefix') format('eot'),
-       url('daniel_regular_macroman/daniel-webfont.woff') format('woff'),
-       url('daniel_regular_macroman/daniel-webfont.ttf') format('truetype'),
-       url('daniel_regular_macroman/daniel-webfont.svg#webfont') format('svg');
+  url('daniel_regular_macroman/daniel-webfont.woff') format('woff'),
+  url('daniel_regular_macroman/daniel-webfont.ttf') format('truetype'),
+  url('daniel_regular_macroman/daniel-webfont.svg#webfont') format('svg');
 }
 
- @section1-color: white;
+@section1-color: white;
 //@bg-color: #D7FF6A;
 @bg-color: #626461;
-@corners :50px;
-@hcolor: #c6fe6a;//#EAFEC1;  //#E3FE68
+@corners : 50px;
+@fcolor-highlight: #c6fe6a;
+//#EAFEC1;  //#E3FE68
 //@section2-color:darken(@bg-color, 40%);
-@section2-color:@bg-color;
-@section3-color:lighten(@bg-color,40%);
-@section4-color:darken(@bg-color,10%);
+@section2-color: @bg-color;
+@section3-color: lighten(@bg-color, 40%);
+@section4-color: darken(@bg-color, 10%);
 
 @link-color: #dddddd;
 @link-hover-color: darken(@link-color, 15%);
+@fcolor-light: #ececec;
+@fcolor-medium: #DCDCDC;
 
-// Usage
-a {
-  color: @link-color;
-  text-decoration: none;
 
-  &:hover {
-    color: @link-hover-color;
-    text-decoration: underline;
+/* bootstrap theme override */
+
+.jumbotron {
+  background-color: @section2-color;
+  h1 {
+    text-align: center;
+    font-family: 'Bad Script', cursive;
+    font-size: xx-large;
   }
-}
 
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
+  h1, h2, p {
+    color:@fcolor-light;
 
-     .centerme{padding-top: 30px;}
-  .mycol{text-align: center;}
-
+  }
+ .text-info{color: #cae8fe;}
 
 }
+.text-success {color: #428BCA;}
 
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {
+/* Specific changes for sizes
+   tiny devices and up */
+@media only screen and (min-width: 320px) {
+
+  .centerme {
+    padding-top: 30px;
+  }
+
+  .mycol {
+    text-align: center;
+  }
 
 }
 
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+/* Extra Small Devices and up, Phones */
+@media only screen and (min-width: 480px) {
+
+}
+
+/* Small Devices and up, Tablets */
+@media only screen and (min-width: 768px) {
   .myrow {
     display: table;
   }
@@ -65,36 +82,31 @@ a {
     vertical-align: middle;
   }
 
+}
 
+/* Medium Devices and up, Desktops */
+@media only screen and (min-width: 992px) {
 
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
+/* Large Devices and up, Wide Screens */
+@media only screen and (min-width: 1200px) {
 
 }
 
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-
+.section2, .section3 {
+  padding-bottom: 25px;
 }
 
-
-
-.section2, .section3{padding-bottom: 25px;}
- .section1{
- }
- .section2{
-
- }
-
-.section1{
+/* section one changes */
+.section1 {
   background-color: @section1-color;
-  h1 {color: black;
+  h1 {
+    color: black;
   }
 
   .myimage {
-    padding:0;
+    padding: 0;
   }
 
   h3 {
@@ -109,6 +121,7 @@ a {
   }
 }
 
+/* section two changes */
 .section2 {
   padding-top: 15px;
 
@@ -126,14 +139,41 @@ a {
     text-align: center;
     font-family: 'muli';
   }
+  background-color: @section2-color;
+  color: @fcolor-light;
 }
 
+/* section three  changes */
+.section3 {
+  background-color: @section3-color
+}
 
-.section2{background-color: @section2-color;
-  color: #ececec;}
-.section3{background-color: @section3-color}
-.section4{background-color: @section4-color;
-color:gainsboro;}
+/* section four changes */
+.section4 {
+  background-color: @section4-color;
+  color: @fcolor-medium;
+  a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover {
+      color: @link-hover-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* generic changes */
+
+.navbar {
+  margin-bottom: 0px;
+}
+.nav-links {
+  margin: 0 auto;
+  padding: 5px 0;
+  width: 300px;
+}
+
 h1 {
   text-align: center;
   font-family: 'Bad Script', cursive;
@@ -145,23 +185,18 @@ h2 {
   font-weight: lighter;
   font-size: larger;
 }
+
 #java3 {
-  background-image: url(images/java_cup.png) ;
+  background-image: url(images/java_cup.png);
   background-size: auto;
-  // background-color: red;
 }
 
-.navbar {
-  margin-bottom: 0px;
-}
 
 .wisdom-title {
   font-family: 'Bad Script', cursive;
   padding-top: 50px;
   text-align: center;
 }
-
-
 
 .title-box {
   padding-bottom: 30px;
@@ -178,34 +213,33 @@ h2 {
   text-align: bottom;
 }
 
+.highlight-color{
+  color: @fcolor-highlight;
+}
 
-
-.green, .mycolor{color: @hcolor;}
-.side-img{padding: 5px;
+.side-img {
+  padding: 5px;
   background-color: @bg-color;
   margin: 5px;
   -webkit-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
   -moz-box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
   box-shadow: 10px 10px 20px 0px rgba(108, 108, 108, 0.75);
-  border:inherit 8px #000000;
+  border: inherit 8px #000000;
   -moz-border-radius-topleft: @corners;
-  -moz-border-radius-topright:@corners;
-  -moz-border-radius-bottomleft:@corners;
-  -moz-border-radius-bottomright:@corners;
-  -webkit-border-top-left-radius:@corners;
-  -webkit-border-top-right-radius:@corners;
-  -webkit-border-bottom-left-radius:@corners;
-  -webkit-border-bottom-right-radius:@corners;
-  border-top-left-radius:@corners;
-  border-top-right-radius:@corners;
-  border-bottom-left-radius:@corners;
-  border-bottom-right-radius:@corners;}
-
-.nav-links {
-  margin: 0 auto;
-  padding:5px 0;
-  width: 300px;
+  -moz-border-radius-topright: @corners;
+  -moz-border-radius-bottomleft: @corners;
+  -moz-border-radius-bottomright: @corners;
+  -webkit-border-top-left-radius: @corners;
+  -webkit-border-top-right-radius: @corners;
+  -webkit-border-bottom-left-radius: @corners;
+  -webkit-border-bottom-right-radius: @corners;
+  border-top-left-radius: @corners;
+  border-top-right-radius: @corners;
+  border-bottom-left-radius: @corners;
+  border-bottom-right-radius: @corners;
 }
+
+
 
 
 
