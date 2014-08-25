@@ -5,8 +5,8 @@
 
 [options="header"]
 [subs="none"]
-<div class="page-header row jumbotron">
-        <img src="/assets/images/lego-confucius.png" class="col-sm-2" style="width:15%"/>
+<div class="page-header row jumbotron ">
+        <img src="/assets/images/wisdomowl.png" class="col-sm-2" style="width:15%;"/>
         <div class="col-sm-9">
         <h1  style="font-size: 39px">How to become <span class="text-primary">wise</span>?</h1>
         <p>Everything you need to know about Wisdom to run a modular and dynamic web applications. Follow us on our
@@ -15,7 +15,7 @@
 </div>
 
 == What's Wisdom ?
-image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right"]
+image::/assets/images/stones-trans-sm.png[Follow the path,float="right",align="right"]
 * link:/learn/philosophy/philosophy.html[The seed was sowed long time ago]
 * link:/learn/philosophy/philosophy.html#chameleon[On the path to Wisdom]
 * link:/learn/philosophy/features.html[The Stack]
@@ -30,7 +30,7 @@ image::/assets/images/lego-path-2.png[Follow the path,float="right",align="right
 * link:/learn/getting-started/ide.html#_intellij[Integrate your Wisdom Project in IntelliJ]
 * link:/learn/getting-started/ide.html#_eclipse[Integrate your Wisdom Project in Eclipse]
 
-image::/assets/images/lego-bricks.png[Building block,float="right",align="right"]
+image::/assets/images/stonepile-trans-sm.png[Building block,float="right",align="right"]
 == Reference Documentation
 
 [subs="none"]
@@ -45,6 +45,7 @@ image::/assets/images/lego-bricks.png[Building block,float="right",align="right"
 <script src="/assets/site/versions.js">
 
 </script>
+
 
 
 
