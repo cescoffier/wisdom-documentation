@@ -76,7 +76,8 @@ world as it is.
 So we built Wisdom, a framework to develop modular and dynamic web applications. A framework embracing modularity,
 making adaptation easy. A framework made by developers for developers, but fulfilling the real world requirements.
 [subs="none"]
-<p><a class="btn btn-primary btn-lg pull-right" href="/learn/philosophy/features.html" role="button"><i class="fa
+<p><a class="btn btn-primary btn-custom btn-lg pull-right" href="/learn/philosophy/features.html"
+role="button"><i class="fa
 fa-play"></i></a></p>
 Oh, before I forgot, we wanted to have fun building it too ;-).
 
