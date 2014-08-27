@@ -29,7 +29,7 @@ This command:
 9. Installs the application's jar and distribution in your local Maven repository
 
 
-This lifecycle is bound to the +wisdom+ packaging used in the +pom.xml+ file:
+This lifecycle is bound to the `wisdom` packaging used in the `pom.xml` file:
 
 [listing]
 <groupId>GROUP_ID</groupId>
@@ -38,7 +38,7 @@ This lifecycle is bound to the +wisdom+ packaging used in the +pom.xml+ file:
 <!-- the wisdom packaging enables the 'wisdom' application lifecycle  -->
 <packaging>wisdom</packaging>
 
-All the required configuration is contained in the +wisdom-maven-plugin+ configuration (also in the +pom.xml+ file):
+All the required configuration is contained in the `wisdom-maven-plugin` configuration (also in the `pom.xml` file):
 
 [listing]
 <plugin>
@@ -77,7 +77,7 @@ It re-executes the steps 1 to 7, and then starts the Wisdom distribution and ena
 
 To leave the _watch_ mode, just issue **CTRL+C**.
 
-IMPORTANT: If you modified your +pom.xml+ file, you need to relaunch the watch mode.
+IMPORTANT: If you modified your `pom.xml` file, you need to relaunch the watch mode.
 
 === Some configuration
 
@@ -86,24 +86,24 @@ link:/wisdom-maven-plugin/${wisdom.version}/plugin-info.html[Wisdom-Maven-Plugin
 
 ==== Command line flags
 
-These flags are appended to the +mvn+ command in the command line interface:
+These flags are appended to the `mvn` command in the command line interface:
 
-* +-DskipTests+ - skips the test execution
-* +-DskipImageOptimization+ - skips the image optimization
-* +-Dshell+ - in watch mode, it gives you access to the http://shelbie.ow2.org[Shelbie] shell prompt (for OSGi users
-only). Stopping the server is then done with the +exit+ command, instead of +CTRL+C+.
-* +-Ddebug=PORT+ - launches the Wisdom service (in watch mode) with the _debug_ port opened to the given one. It lets
+* `-DskipTests` - skips the test execution
+* `-DskipImageOptimization` - skips the image optimization
+* `-Dshell` - in watch mode, it gives you access to the http://shelbie.ow2.org[Shelbie] shell prompt (for OSGi users
+only). Stopping the server is then done with the `exit` command, instead of `CTRL+C`.
+* `-Ddebug=PORT` - launches the Wisdom service (in watch mode) with the _debug_ port opened to the given one. It lets
  you connect your debugger.
 
 ==== Plugin configuration
 
-These parameters can be added to the +<configuration/>+ section of the +wisdom-maven-plugin+:
+These parameters can be added to the `<configuration/>` section of the `wisdom-maven-plugin`:
 
-* +<skipGoogleClosure>true</skipGoogleClosure>+ - skips the Google Closure compilation and minification
-* +<excludeTransitive>true</excludeTransitive>+ - excludes the copy of the transitive dependency
-* +<skipImageOptimization>true</skipImageOptimization>+ - skips the image optimization
-* +<failOnBrokenAsset>true</failOnBrokenAsset>+ - fails the build is the image optimization fails on a file
-* +<disableDistributionPackaging>true</disableDistributionPackaging>+ - disables the packaging of the distribution
+* `<skipGoogleClosure>true</skipGoogleClosure>` - skips the Google Closure compilation and minification
+* `<excludeTransitive>true</excludeTransitive>` - excludes the copy of the transitive dependency
+* `<skipImageOptimization>true</skipImageOptimization>` - skips the image optimization
+* `<failOnBrokenAsset>true</failOnBrokenAsset>` - fails the build is the image optimization fails on a file
+* `<disableDistributionPackaging>true</disableDistributionPackaging>` - disables the packaging of the distribution
 
 [subs="none]
 <p><a class="btn btn-primary btn-lg pull-right" href="/learn" role="button"><i class="fa
