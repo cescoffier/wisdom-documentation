@@ -51,15 +51,16 @@ public class Site extends DefaultController {
     @Route(method = HttpMethod.GET, uri = "/")
     public Result home() {
         // The main documentation linked is bound to the version set in the configuration file.
-        return ok(render(home, "wisdom.version", configuration.get("wisdom.version")));
+        return ok(render(home, "wisdom.version", configuration.get("wisdom.version"),
+                "skipGithubCSS", true));
     }
 
     @Route(method = HttpMethod.GET, uri = "/learn/{path+}")
     public Result page(@Parameter("path") String path) {
         if (path == null || path.isEmpty()) {
-            return ok(render(asciidoc, "page", "/assets/site/learn.html"));
+            return ok(render(asciidoc, "page", "/assets/site/learn.html", "skipGithubCSS", false));
         } else {
-            return ok(render(asciidoc, "page", "/assets/site/" + path));
+            return ok(render(asciidoc, "page", "/assets/site/" + path, "skipGithubCSS", false));
         }
     }
 
@@ -67,7 +68,8 @@ public class Site extends DefaultController {
     public Result doc(@Parameter("path") String path) {
         if (path.endsWith(".html")) {
             // Wraps the html pages in the layout.
-            return ok(render(asciidoc, "page", "/documentation/reference/" + path));
+            return ok(render(asciidoc, "page", "/documentation/reference/" + path,
+                    "skipGithubCSS", false));
         } else {
             return redirect("/documentation/reference/" + path);
         }
@@ -77,7 +79,8 @@ public class Site extends DefaultController {
     public Result mojo(@Parameter("path") String path) {
         if (context().request().accepts(MimeTypes.HTML)) {
             // Wraps the html pages in the layout.
-            return ok(render(mojo, "page", "/documentation/wisdom-maven-plugin/" + path));
+            return ok(render(mojo, "page", "/documentation/wisdom-maven-plugin/" + path,
+                    "skipGithubCSS", false));
         } else {
             return redirect("/documentation/wisdom-maven-plugin/" + path);
         }
@@ -91,7 +94,7 @@ public class Site extends DefaultController {
     @Cached(key = "learn", duration = 3600)
     @Route(method = HttpMethod.GET, uri = "/learn")
     public Result learn() {
-        return ok(render(asciidoc, "page", "/assets/site/learn.html"));
+        return ok(render(asciidoc, "page", "/assets/site/learn.html", "skipGithubCSS", false));
     }
 
     @Route(method = HttpMethod.GET, uri = "/download")

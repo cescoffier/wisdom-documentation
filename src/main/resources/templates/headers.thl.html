@@ -2,7 +2,7 @@
 <html>
 
 <!-- Head fragment (require the title argument) -->
-<head th:fragment="head (title)" lang="en">
+<head th:fragment="head (title, skipGithubCSS)" lang="en">
     <meta charset="UTF-8"/>
     <link rel="shortcut icon" href="/assets/images/owl-small.png"/>
     <title th:utext="'Wisdom Framework - ' + ${title}">Wisdom Framework</title>
@@ -10,12 +10,9 @@
 
     <link rel="stylesheet" href="/libs/bootswatch-yeti/css/bootstrap.css" media="screen"/>
     <!--<link rel="stylesheet" href="/libs/bootswatch-flatly/3.1.1/css/bootstrap-theme.css">-->
-
     <link rel="stylesheet" href="/libs/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/libs/font-mfizz.css"/>
-    <link rel="stylesheet" href="/assets/style.css"/>
-    <link rel="stylesheet" href="/assets/stylesheets/github.css"/>
-
+     <link rel="stylesheet" href="/assets/stylesheets/github.css" th:unless="${skipGithubCSS}"/>
     <link rel="stylesheet" href="/assets/stylesheets/wisdom.css"/>
     <link rel="stylesheet" href="/assets/style.css"/>
     <link rel="stylesheet"
@@ -67,7 +64,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/learn/community/community.html">Mailing List and
-                                Issues!</a></li>
+                                Issues</a></li>
                             <li><a href="/releases">Release Notes</a></li>
                             <li><a href="/registry/dev">Wisdom Extension Registry</a></li>
                         </ul>
