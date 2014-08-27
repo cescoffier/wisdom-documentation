@@ -49,7 +49,7 @@ mvn.bat org.wisdom-framework:wisdom-maven-plugin:${wisdom.version}:create -Dgrou
 d="YOUR_ARTIFACTID" -Dversion="YOUR_VERSION"
 ----
 
-TIP: You can also customize the generated +package+ with +-Dpackage=org.acme.wisdom+
+TIP: You can also customize the generated `package` with `-Dpackage=org.acme.wisdom`
 
 Once generated, you can already run your wisdom application. Navigate to the generated folder, and launch:
 

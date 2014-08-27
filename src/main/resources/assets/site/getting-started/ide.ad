@@ -13,32 +13,32 @@ Wisdom build system is based on Apache Maven, so any IDE supporting Maven would 
 
 If you are using Eclipse, there are two ways to integrate Wisdom projects:
 
-1. Using +mvn eclipse:eclipse+
+1. Using `mvn eclipse:eclipse`
 2. Using https://www.eclipse.org/m2e/[m2eclipse]
 
 ==== Using eclipse:eclipse
 
-Using the +eclipse:eclipse+ way does not require any Eclipse plugin installed. Maven generates the Eclipse's
+Using the `eclipse:eclipse` way does not require any Eclipse plugin installed. Maven generates the Eclipse's
 configuration files.
 
-First, navigate to your project and launch: +mvn eclipse:eclipse+. This generates the +.classpath+ and +.project+.
+First, navigate to your project and launch: `mvn eclipse:eclipse`. This generates the `.classpath` and `.project`.
 
-Before importing the project to Eclipse, check that the +M2_REPO+ classpath variable is defined:
+Before importing the project to Eclipse, check that the `M2_REPO` classpath variable is defined:
 
 image::/assets/images/eclipse/M2_REPO.png[Define the M2_REPO variable,align="center"]
 
-You also need to check that your `Compiler compliance level` is set to **1.7**, in +Preferences->Java->Compiler+.
+You also need to check that your `Compiler compliance level` is set to **1.7**, in `Preferences->Java->Compiler`.
 
-Once done, just import the project as an `Existing Project into Workspace` (+File->Import->General->Existing Project
-into Workspace+).
+Once done, just import the project as an `Existing Project into Workspace` (`File->Import->General->Existing Project
+into Workspace`).
 
 video::whnayOd1Cpg[youtube, width="600", height="300"]
 
-IMPORTANT: As Eclipse will ignore your `pom.xml` file, every time you add a dependency you will need to run +mvn
-eclipse:eclipse+ again.
+IMPORTANT: As Eclipse will ignore your `pom.xml` file, every time you add a dependency you will need to run `mvn
+eclipse:eclipse` again.
 
 TIP: Because of a bug in Eclipse (https://bugs.eclipse.org/bugs/show_bug.cgi?id=38016), we recommend that you launch the
-Wisdom Watch Mode (+mvn wisdom:run+) from the command line, or with the +-Dshell+ option (so you will have to enter
+Wisdom Watch Mode (`mvn wisdom:run`) from the command line, or with the `-Dshell` option (so you will have to enter
 the 'exit' command to shutdown the server).
 
 ==== Using m2eclipse
@@ -92,14 +92,14 @@ itself. In the case of Wisdom, the metadata to add is available here. Edit your 
 </pluginManagement>
 ----
 
-Once done, you project should compile correctly in Eclipse. Launch the Wisdom Watch Mode using +mvn wisdom:run+, and
+Once done, you project should compile correctly in Eclipse. Launch the Wisdom Watch Mode using `mvn wisdom:run`, and
 enjoy !
 
 ==== Debugging Wisdom application with Eclipse
 
 To debug a Wisdom applicaiton, you just do two things:
 
-1. Launch the Wisdom server with the +Debug+ option: +mvn wisdom:run -Ddebug=8000+
+1. Launch the Wisdom server with the `Debug` option: `mvn wisdom:run -Ddebug=8000`
 2. Create a new Debug Configuration for Remote Applications, connecting on the port specified above (8000):
 
 image::/assets/images/eclipse/Debug_Configurations.png[Connecting the debugger,align="center"]
@@ -114,21 +114,21 @@ video::czaFARIlwPw[youtube, width="600", height="300"]
 Integrating Wisdom and IntelliJ is straightforward. As Wisdom build is based on Apache Maven, the Wisdom project can
 be imported as any other Maven project.
 
-So, on startup select 'Import Project', or if the IDE is already running go to +File->Import Project+. You can also
-import the application as a module with +File->Import Module+.
+So, on startup select 'Import Project', or if the IDE is already running go to `File->Import Project`. You can also
+import the application as a module with `File->Import Module`.
 
 The only important configuration is the version of Java you use. It must be Java 7+.
 
 ==== Create the Watch Configuration
 
 Importing the project lets you develop with IntelliJ, but what about launching the watch mode from IntelliJ. As shown
-on the video, just create a new +run+ configuration (+Run->Edit Configuration...+). Then click on the **+** button to
- create a new +Maven+ configuration. In the command line, enter +wisdom:run+, and run !
+on the video, just create a new `run` configuration (`Run->Edit Configuration...`). Then click on the **+** button to
+ create a new `Maven` configuration. In the command line, enter `wisdom:run`, and run !
 
 ==== Enable the colored output in the console
 
 To get the colored console, install the Grep Console plugin: http://plugins.jetbrains.com/plugin/7125. Once done, in
-+Preferences->Grep Console+, verify that the +Enabled Ansi Coloring option_ is checked.
+`Preferences->Grep Console`, verify that the `Enabled Ansi Coloring` option is checked.
 
 ==== Debugging Wisdom application with IntelliJ
 
@@ -136,7 +136,7 @@ Debugging a Wisdom application is also quite easy. However it cannot be done usi
 configuration we just created. This is because two Java applications are launched: the Maven program and the Wisdom
 server.
 
-Edit the created configuration and replace +mvn wisdom:run+ by +mvn wisdom:run -Ddebug=5000+. The debug argument
+Edit the created configuration and replace `mvn wisdom:run` by `mvn wisdom:run -Ddebug=5000`. The debug argument
 instructs the Wisdom server to expect a debugger connection on the specified port (5000 here).
 
 image::/assets/images/intellij/Run_Debug_Configurations.png[Adding -Ddebug=5000 to the configuration,align="center"]
