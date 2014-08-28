@@ -1,3 +1,7 @@
 target/
 *.iml
 .idea
+
+/.idea/libraries/Maven__org_webjars_bootswatch_yeti_3_1_1.xml
+
+/src/main/resources/assets/newsstream.json
