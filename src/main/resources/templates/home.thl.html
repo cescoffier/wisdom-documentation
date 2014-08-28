@@ -2,11 +2,8 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head th:replace="headers :: head(title='Home', skipGithubCSS=${skipGithubCSS})" lang="en">
     <meta charset="UTF-8"/>
-  <!--  <link rel="shortcut icon" href="/assets/images/owl-small.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="/libs/bootswatch-yeti/css/bootstrap.css" media="screen"/>
-    <link rel="stylesheet" href="/libs/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/assets/style.css"/>    -->
+  <script src="/assets/libs/wisdom-news.js"/>
+
 </head>
 <body>
 <div th:replace="headers :: header"><!-- Top Bar --></div>
@@ -147,11 +144,42 @@
 
     </div>
     <div class="row section4">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 news" id="news-section">
             <h1 class="highlight-color">News</h1>
             <p>blahblah news is here wow</p>
-        </div>
-        <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12"><div class="col-xs-12 col-sm-6">I am a title</div>
+                <div class="col-xs-12 col-sm-6">sept 6th 2014</div>
+                <div class="col-xs-12 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipiscin
+                    g elit. Vivamus tempus, erat eu mattis accumsan, nisl lectus consectetur ex, vel suscipit ex justo eget augue. Nam ultricies, nisl vel convallis tempor, libero urna mollis urna, nec congue sem erat in ex. Ut viverra lacus ornare, sodales dolor accumsan, scelerisque lacus. Donec ipsum eros, pellentesque vitae vestibulum quis, commodo in velit. Aenean tincidunt, urna vitae convallis dignissim, leo nisl ultrices enim, vitae tincidunt arcu sapien a enim. Proin interdum arcu et est facilisis, in faucibus nunc fringilla. Quisque eu libero convallis, dignissim velit eget, porta orci. Aliquam laoreet diam quis eleifend vulputate. Aliquam non sapien eu dolor malesuada maximus. Suspendisse hendrerit id lectus sit amet commodo. Fusce iaculis cursus ex vitae mattis
+                </div>
+            </div>
+            <br/>
+            <div class="col-xs-12 col-sm-12"><div class="col-xs-12 col-sm-6">I am a title</div>
+                <div class="col-xs-12 col-sm-6">sept 6th 2014</div>
+                <div class="col-xs-12 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipiscin
+                    g elit. Vivamus tempus, erat eu mattis accumsan, nisl lectus consectetur ex, vel suscipit ex justo eget augue. Nam ultricies, nisl vel convallis tempor, libero urna mollis urna, nec congue sem erat in ex. Ut viverra lacus ornare, sodales dolor accumsan, scelerisque lacus. Donec ipsum eros, pellentesque vitae vestibulum quis, commodo in velit. Aenean tincidunt, urna vitae convallis dignissim, leo nisl ultrices enim, vitae tincidunt arcu sapien a enim. Proin interdum arcu et est facilisis, in faucibus nunc fringilla. Quisque eu libero convallis, dignissim velit eget, porta orci. Aliquam laoreet diam quis eleifend vulputate. Aliquam non sapien eu dolor malesuada maximus. Suspendisse hendrerit id lectus sit amet commodo. Fusce iaculis cursus ex vitae mattis
+                </div>
+            </div>
+            <br/>
+            <div class="col-xs-12 col-sm-12"><div class="col-xs-12 col-sm-6">I am a title</div>
+                <div class="col-xs-12 col-sm-6">sept 6th 2014</div>
+                <div class="col-xs-12 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipiscin
+                    g elit. Vivamus tempus, erat eu mattis accumsan, nisl lectus consectetur ex, vel suscipit ex justo eget augue. Nam ultricies, nisl vel convallis tempor, libero urna mollis urna, nec congue sem erat in ex. Ut viverra lacus ornare, sodales dolor accumsan, scelerisque lacus. Donec ipsum eros, pellentesque vitae vestibulum quis, commodo in velit. Aenean tincidunt, urna vitae convallis dignissim, leo nisl ultrices enim, vitae tincidunt arcu sapien a enim. Proin interdum arcu et est facilisis, in faucibus nunc fringilla. Quisque eu libero convallis, dignissim velit eget, porta orci. Aliquam laoreet diam quis eleifend vulputate. Aliquam non sapien eu dolor malesuada maximus. Suspendisse hendrerit id lectus sit amet commodo. Fusce iaculis cursus ex vitae mattis
+                </div>
+            </div>
+            <br/>
+            <div class="col-xs-12 col-sm-12"><div class="col-xs-12 col-sm-6">I am a title</div>
+                <div class="col-xs-12 col-sm-6">sept 6th 2014</div>
+                <div class="col-xs-12 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipiscin
+                    g elit. Vivamus tempus, erat eu mattis accumsan, nisl lectus consectetur ex, vel suscipit ex justo eget augue. Nam ultricies, nisl vel convallis tempor, libero urna mollis urna, nec congue sem erat in ex. Ut viverra lacus ornare, sodales dolor accumsan, scelerisque lacus. Donec ipsum eros, pellentesque vitae vestibulum quis, commodo in velit. Aenean tincidunt, urna vitae convallis dignissim, leo nisl ultrices enim, vitae tincidunt arcu sapien a enim. Proin interdum arcu et est facilisis, in faucibus nunc fringilla. Quisque eu libero convallis, dignissim velit eget, porta orci. Aliquam laoreet diam quis eleifend vulputate. Aliquam non sapien eu dolor malesuada maximus. Suspendisse hendrerit id lectus sit amet commodo. Fusce iaculis cursus ex vitae mattis
+                </div>
+            </div>
+            <br/>
+
+
+
+        </div><!-- end news -->
+        <div class="col-xs-12 col-sm-6 links">
             <h1 class="highlight-color">Links</h1>
             <ul class="nav-links fa-ul">
 
@@ -170,5 +198,8 @@
     <!-- /.container -->
 </div>
 <div th:replace="scripts :: scripts"></div>
+<script src="/assets/libs/wisdom-news.js"></script>
 </body>
+
+
 </html>
