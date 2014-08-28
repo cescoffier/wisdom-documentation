@@ -22,21 +22,37 @@
 //@section2-color:darken(@bg-color, 40%);
 @section2-color: @bg-color;
 @section3-color: lighten(@bg-color, 40%);
-@section4-color: darken(@bg-color, 10%);
+@section4-color: darken(@bg-color, 10%);    //#494A48
 
 @link-color: #dddddd;
 @link-hover-color: darken(@link-color, 15%);
 @fcolor-light: #ececec;
 @fcolor-medium: #DCDCDC;
 
-.btn-custom4 {
-  //.button-variant(blue; red; green);
+
+
+.mainpage {
+  background-color: @section4-color;
+  footer {color:@fcolor-light;
+    span{color: @fcolor-highlight;}
+    a {
+      color: @link-color;
+      text-decoration: none;
+
+      &:hover {
+        color: @link-hover-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+
 }
 
 /* bootstrap theme override */
 
 .jumbotron {
-  background-color: @section2-color;
+  background-color: @section3-color;
   h1 {
     text-align: center;
     font-family: 'Bad Script', cursive;
@@ -44,14 +60,14 @@
   }
 
   h1, h2, p {
-    color:@fcolor-light;
-
+   // color:@fcolor-light;
+    color:@section4-color;
   }
  .text-info{color: #cae8fe;}
 
 }
 .text-success {color: #428BCA;}
-
+.text-primary {color: #4183C4;}
 /* Specific changes for sizes
    tiny devices and up */
 @media only screen and (min-width: 320px) {
@@ -170,7 +186,12 @@
 
 .navbar {
   margin-bottom: 0px;
-}
+  background-color: @section4-color;
+  color: @link-color;
+
+  }
+
+
 .nav-links {
   margin: 0 auto;
   padding: 5px 0;

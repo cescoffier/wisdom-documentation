@@ -1965,3 +1965,7 @@ h2 {
 .admonitionblock > table td.icon {
     font-size: x-large;
 }
+
+.olist {
+    padding-left: 3%;
+}
