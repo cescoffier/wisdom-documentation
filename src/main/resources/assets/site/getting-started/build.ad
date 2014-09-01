@@ -44,7 +44,7 @@ All the required configuration is contained in the `wisdom-maven-plugin` configu
 <plugin>
     <groupId>org.wisdom-framework</groupId>
     <artifactId>wisdom-maven-plugin</artifactId>
-    <version>${wisdom.version}</version>
+    <version>${wisdom.current.version}</version>
     <extensions>true</extensions>
     <configuration>
         <skipGoogleClosure>true</skipGoogleClosure>
@@ -82,7 +82,7 @@ IMPORTANT: If you modified your `pom.xml` file, you need to relaunch the watch m
 === Some configuration
 
 The full configuration is available on the
-link:/wisdom-maven-plugin/${wisdom.version}/plugin-info.html[Wisdom-Maven-Plugin site].
+link:/wisdom-maven-plugin/${wisdom.current.version}/plugin-info.html[Wisdom-Maven-Plugin site].
 
 ==== Command line flags
 
@@ -108,9 +108,3 @@ These parameters can be added to the `<configuration/>` section of the `wisdom-m
 [subs="none]
 <p><a class="btn btn-primary btn-lg pull-right" href="/learn" role="button"><i class="fa
 fa-play"></i></a></p>
-
-
-
-
-
-

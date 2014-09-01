@@ -12,6 +12,7 @@
 
     <properties>
         <wisdom.version>0.7-SNAPSHOT</wisdom.version>
+        <wisdom.current.version>0.6.3</wisdom.current.version>
     </properties>
 
     <dependencyManagement>
@@ -118,6 +119,12 @@
             <groupId>org.wisdom-framework</groupId>
             <artifactId>wisdom-news</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wisdom-framework</groupId>
+            <artifactId>wisdom-vertx-engine</artifactId>
+            <version>0.7-SNAPSHOT</version>
         </dependency>
 
         <dependency>
