@@ -45,7 +45,11 @@ public class ReleaseNoteController extends DefaultController {
     @Validate
     @Every("6h")
     public void populateCache() throws Exception {
-        retrieveReleases();
+        try {
+            retrieveReleases();
+        } catch (Exception e) {
+            LOGGER.error("Cannot retrieve the release from GitHub", e);
+        }
     }
 
     @Route(method = HttpMethod.GET, uri = "/releases")
