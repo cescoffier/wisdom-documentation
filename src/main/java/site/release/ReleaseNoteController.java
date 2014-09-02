@@ -63,7 +63,9 @@ public class ReleaseNoteController extends DefaultController {
         List<Release> list = new ArrayList<Release>();
         String milestones = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                 ("repo.name") + "/milestones?state=closed";
+        LOGGER.info("Retrieving milestones from {}", milestones);
         final JsonNode body = json.parse(Request.Get(milestones).execute().returnContent().asString());
+        LOGGER.info("Retrieved milestones from Github : {}", body);
         if (body instanceof ObjectNode) {
             LOGGER.error("Cannot retrieve the milestones from GitHub - Probably an API Rate Limit. The response is: " +
                     "{}", body);
@@ -79,7 +81,9 @@ public class ReleaseNoteController extends DefaultController {
             int milestoneNumber = node.get("number").asInt();
             String url = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                     ("repo.name") + "/issues?milestone=" + milestoneNumber + "&state=closed&per_page=300";
+            LOGGER.info("Retrieving the issue list for milestone {} ({}) from {}", release.name, milestoneNumber, url);
             final JsonNode resp = json.parse(Request.Get(url).execute().returnContent().asString());
+            LOGGER.info("Retrieved the issue list for milestone {} ({}): {}", release.name, milestoneNumber, resp);
             if (resp instanceof ObjectNode) {
                 LOGGER.error("Cannot retrieve the issues from GitHub - Probably an API Rate Limit. The response is: " +
                         "{}", body);
