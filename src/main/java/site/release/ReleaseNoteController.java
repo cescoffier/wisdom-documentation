@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.ipojo.annotations.Validate;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +44,9 @@ public class ReleaseNoteController extends DefaultController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ReleaseNoteController.class);
 
+    Executor executor = Executor.newInstance().auth(new UsernamePasswordCredentials(configuration.getOrDie("github" +
+            ".token") + ":x-oauth-basic"));
+
     @Validate
     @Every("6h")
     public void populateCache() throws Exception {
@@ -64,7 +69,7 @@ public class ReleaseNoteController extends DefaultController {
         String milestones = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                 ("repo.name") + "/milestones?state=closed";
         LOGGER.info("Retrieving milestones from {}", milestones);
-        final JsonNode body = json.parse(Request.Get(milestones).execute().returnContent().asString());
+        final JsonNode body = json.parse(executor.execute(Request.Get(milestones)).returnContent().asString());
         LOGGER.info("Retrieved milestones from Github : {}", body);
         if (body instanceof ObjectNode) {
             LOGGER.error("Cannot retrieve the milestones from GitHub - Probably an API Rate Limit. The response is: " +
@@ -82,7 +87,7 @@ public class ReleaseNoteController extends DefaultController {
             String url = "https://api.github.com/repos/" + configuration.get("repo.owner") + "/" + configuration.get
                     ("repo.name") + "/issues?milestone=" + milestoneNumber + "&state=closed&per_page=300";
             LOGGER.info("Retrieving the issue list for milestone {} ({}) from {}", release.name, milestoneNumber, url);
-            final JsonNode resp = json.parse(Request.Get(url).execute().returnContent().asString());
+            final JsonNode resp = json.parse(executor.execute(Request.Get(url)).returnContent().asString());
             LOGGER.info("Retrieved the issue list for milestone {} ({}): {}", release.name, milestoneNumber, resp);
             if (resp instanceof ObjectNode) {
                 LOGGER.error("Cannot retrieve the issues from GitHub - Probably an API Rate Limit. The response is: " +
