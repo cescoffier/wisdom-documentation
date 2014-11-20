@@ -47,7 +47,7 @@ public class Site extends DefaultController {
     @View("content/mojo")
     private Template mojo;
 
-    @Cached(key = "home", duration = 3600)
+    //@Cached(key = "home", duration = 3600)
     @Route(method = HttpMethod.GET, uri = "/")
     public Result home() {
         // The main documentation linked is bound to the version set in the configuration file.

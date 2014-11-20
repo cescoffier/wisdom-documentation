@@ -12,7 +12,7 @@
 
     <properties>
         <wisdom.version>0.7-SNAPSHOT</wisdom.version>
-        <wisdom.current.version>0.6.3</wisdom.current.version>
+        <wisdom.current.version>0.6.5</wisdom.current.version>
     </properties>
 
     <dependencyManagement>
