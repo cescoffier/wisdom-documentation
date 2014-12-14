@@ -73,7 +73,7 @@ mapped on iPOJO primitives.
 * **[text-primary]#JSON#** - Reading, parsing and writing JSON payload is made using the
 http://wiki.fasterxml.com/JacksonHome[Jackson] library.
 
-* **[text-primary]#HTTP#** - Wisdom uses http://netty.io[Netty] to serve HTTP requests.
+* **[text-primary]#HTTP#** - Wisdom uses http://vertx.io[Vertx] to serve HTTP requests.
 
 * **[text-primary]#Dynamic Routing#** - the Wisdom router is inherently dynamic.
 
