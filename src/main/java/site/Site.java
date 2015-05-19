@@ -99,15 +99,11 @@ public class Site extends DefaultController {
 
     @Route(method = HttpMethod.GET, uri = "/download")
     public Result download() {
-        String raw = configuration.get("wisdom.versions");
-        String[] segments = raw.split(",");
-        List<String> versions = new ArrayList<String>();
-        for (String s : segments) {
-            versions.add(s.trim());
-        }
+        List<String> versions = configuration.getList("wisdom.versions");
         logger().info("Versions : " + versions.size());
         return ok(render(download, "versions", versions,"javaVersion",
-                configuration.get("javaVersion"),"mavenVersion",configuration.get("mavenVersion")
+                configuration.get("javaVersion"),"mavenVersion",
+                configuration.get("mavenVersion")
                 ,"javaLink",configuration.get("javaLink"),"mavenLink",
                 configuration.get("mavenLink"), "wisdomVersion",
                 configuration.get("wisdom.version")));

@@ -11,8 +11,8 @@
     <packaging>wisdom</packaging>
 
     <properties>
-        <wisdom.version>0.7-SNAPSHOT</wisdom.version>
-        <wisdom.current.version>0.6.5</wisdom.current.version>
+        <wisdom.version>0.9.1</wisdom.version>
+        <wisdom.current.version>0.9.1</wisdom.current.version>
     </properties>
 
     <dependencyManagement>
@@ -21,7 +21,7 @@
                 <!-- Define all the versions of the dependencies provided by Wisdom -->
                 <groupId>org.wisdom-framework</groupId>
                 <artifactId>wisdom-bom</artifactId>
-                <version>0.7-SNAPSHOT</version>
+                <version>${wisdom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -54,17 +54,14 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient-osgi</artifactId>
-            <version>4.3.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpasyncclient-osgi</artifactId>
-            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore-osgi</artifactId>
-            <version>4.3.2</version>
         </dependency>
 
         <!-- slf4j binding used for tests -->
@@ -108,7 +105,7 @@
         <dependency>
             <groupId>org.wisdom-framework</groupId>
             <artifactId>wisdom-monitor</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <version>${wisdom.version}</version>
         </dependency>
         <dependency>
             <groupId>org.wisdom-framework</groupId>
@@ -123,8 +120,13 @@
 
         <dependency>
             <groupId>org.wisdom-framework</groupId>
-            <artifactId>wisdom-vertx-engine</artifactId>
-            <version>0.7-SNAPSHOT</version>
+            <artifactId>wisdom-orientdb-object</artifactId>
+            <version>0.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_1.0_spec</artifactId>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>

@@ -24,6 +24,8 @@ public class DocConfiguration {
     public static Instance declareTheDocumentationController() {
         return Instance.instance().of("org.wisdom.resources.AssetController")
                 .named("Documentation-Resources")
-                .with("path").setto("documentation");
+                .with("path").setto("documentation")
+                .with("manageAssetsFromBundles").setto(false)
+                .with("url").setto("/documentation");
     }
 }
